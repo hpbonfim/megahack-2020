@@ -1,4 +1,4 @@
 
 module.exports = {
-    url: 'mongodb://mongo:27017/database'
+    url: 'mongodb://'+`${process.env.MONGODB}`+':27017/database'
 }

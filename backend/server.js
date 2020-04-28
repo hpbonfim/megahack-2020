@@ -9,16 +9,16 @@ app.use(bodyParser.urlencoded({  extended: false })) // parse requests of conten
 app.use(bodyParser.json()) // parse requests of content-type - application/json
 
 // Configuring the database
-// const database = require("./database.config.js")
-// const mongoose = require("mongoose")
-// mongoose.Promise = global.Promise // Database Config
-// mongoose.connect(database.url, { useMongoClient: true })
-// .then(() => {
-//     console.log("Conectado com sucesso ao Mongo")
-//   }).catch(error => {
-//     console.error("Erro de conexão", error)
-//     process.exit()
-// })
+const database = require("./database.config.js")
+const mongoose = require("mongoose")
+mongoose.Promise = global.Promise // Database Config
+mongoose.connect(database.url, { useMongoClient: true })
+.then(() => {
+    console.log("Conectado com sucesso ao Mongo")
+  }).catch(error => {
+    console.error("Erro de conexão", error)
+    process.exit()
+})
 
 //CORS middleware
 app.use((req, res, next) => {
