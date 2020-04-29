@@ -1,4 +1,4 @@
 
 module.exports = {
-    url: 'mongodb://'+`${process.env.MONGODB}`+':27017/database'
+    url: 'mongodb://'+`${process.env.MONGO_USER}:${process.env.MONGO_PASS}`+'@'+`${process.env.MONGO_URL}`+':'+`${process.env.MONGO_PORT}`+`${process.env.MONGO_QUERY}`
 }

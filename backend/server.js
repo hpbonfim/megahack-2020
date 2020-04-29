@@ -1,7 +1,6 @@
 require('dotenv').config()
 const express = require("express")
 const app = express()
-
 const bodyParser = require("body-parser")
 const morgan = require("morgan")
 app.use(morgan("dev")) // http logs
@@ -12,7 +11,8 @@ app.use(bodyParser.json()) // parse requests of content-type - application/json
 const database = require("./database.config.js")
 const mongoose = require("mongoose")
 mongoose.Promise = global.Promise // Database Config
-mongoose.connect(database.url, { useMongoClient: true })
+mongoose.set('useCreateIndex', true)
+mongoose.connect(database.url, { useNewUrlParser: true,  useUnifiedTopology: true })
 .then(() => {
     console.log("Conectado com sucesso ao Mongo")
   }).catch(error => {
