@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
+import { LoginService } from './login.service';
 
 
 @NgModule({
@@ -23,6 +24,9 @@ import { LoginComponent } from './login.component';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule
+  ],
+  providers: [
+    LoginService
   ]
 })
 export class LoginModule { }

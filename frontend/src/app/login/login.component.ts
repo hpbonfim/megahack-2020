@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -9,13 +10,20 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
   form: FormGroup;
 
-  constructor() { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
     this.createForm();
   }
 
-  handleSubmit = () => true;
+  handleSubmit = async () => {
+    if (this.form.invalid) { return; }
+
+    const response = await this.loginService.create(this.form.value).toPromise();
+
+    console.log(response);
+
+  }
 
   private createForm() {
     this.form = new FormGroup({
