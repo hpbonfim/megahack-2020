@@ -20,10 +20,10 @@ COPY nginx_config/default.conf /etc/nginx/conf.d/default.conf
 #COPY nginx_config/server.key /etc/nginx/ssl/server.key
 
 # Copy our build source code into the container
-COPY dist ./www
+COPY docs ./www
 
 # copy the built app to our served directory
-RUN cp -r www/* /var/www/html && rm -rf ./* 
+RUN cp -r www/* /var/www/html && rm -rf ./*
 
 # make all files belongs to the nginx user
 RUN chown nginx:nginx /var/www/html
