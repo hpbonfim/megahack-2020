@@ -1,0 +1,33 @@
+<form (ngSubmit)="handleSubmit()" [formGroup]="form">
+
+  <div class="content" fxLayout="column" fxFlexFill>
+    <h2>#logoDoApp</h2>
+
+    <div fxFlex="15">
+      <mat-form-field appearance="standard" color="accent" fxFlex="">
+        <mat-label>E-mail</mat-label>
+
+        <input formControlName="email" type="text" ngDefaultControl matInput color="accent" />
+
+        <mat-error>Campo obrigatório</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div fxFlex="15">
+      <mat-form-field appearance="standard" color="accent" fxFlex="">
+        <mat-label>Senha</mat-label>
+
+        <input formControlName="password" type="password" ngDefaultControl matInput color="accent" />
+
+        <mat-error>Campo obrigatório</mat-error>
+      </mat-form-field>
+    </div>
+    <br>
+
+    <div fxFlex="15">
+      <button fxFlexFill mat-raised-button color="accent" type="submit">Entrar</button>
+    </div>
+
+  </div>
+
+</form>
