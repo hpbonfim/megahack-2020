@@ -3,6 +3,8 @@ const express = require("express")
 const app = express()
 const bodyParser = require("body-parser")
 const morgan = require("morgan")
+const cors = require('cors')
+
 app.use(morgan("dev")) // http logs
 app.use(bodyParser.urlencoded({  extended: false })) // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.json()) // parse requests of content-type - application/json
@@ -20,19 +22,22 @@ mongoose.connect(database.url, { useNewUrlParser: true,  useUnifiedTopology: tru
     process.exit()
 })
 
-//CORS middleware
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*")
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-  )
-  if (req.method === "OPTIONS") {
-    res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET")
-    return res.status(200).json({})
-  }
-  next()
+//CORS middleware primary
+ app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
+    res.header(
+     "Access-Control-Allow-Headers",
+     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+    )
+    if (req.method === "OPTIONS") {
+     res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET")
+     return res.status(200).json({})
+    }
+    next()
 })
+
+// //CORS middleware secondary
+// app.use(cors())
 
 //routes
 const userRoutes = require("./api/routes/user")

@@ -33,7 +33,7 @@ exports.user_register = (req, res, next) => {
                         .save()
                         .then(result => {
                             console.log('resultado: ',result);
-                            res.status(200).send({
+                            return res.status(200).send({
                                 message: "usuário cadastrado com sucesso",
                                 phone: req.body.phone,
                                 result
@@ -41,7 +41,7 @@ exports.user_register = (req, res, next) => {
                         })
                         .catch(err => {
                             console.log(err);
-                            res.status(500).json({
+                            return res.status(500).json({
                                 error: err
                             })
                         })
@@ -80,18 +80,19 @@ exports.user_login = (req, res, next) => {
                 console.log("access_token: ", user[0]._id, "usuario:", user[0].username)
                 return res.status(200).send(usuario)
             }
-            res.status(401).json({
+            return res.status(401).json({
                 message: "Não permitido"
             })
         })
     })
     .catch(err => {
         console.log(err)
-        res.status(500).json({
+        return res.status(500).json({
             error: err
         })
     })
 }
+
 // TODO - CHECK ERRORS
 exports.user_verify = (req, res, next) => {
     User.find({
@@ -103,34 +104,59 @@ exports.user_verify = (req, res, next) => {
             console.log(user)
             return res.status(401).json()
         }
-        if (req.body.phone && (req.query.code).length === 4) {
+        if (req.body.phone) {
             client
                 .verify
                 .services(process.env.SERVICE_ID)
                 .verificationChecks
                 .create({
-                    to: `+${req.query.phone}`,
-                    code: req.query.code
+                    to: `+${req.body.countryCode}`+`${req.body.phone}`,
+                    code: `${req.body.code}`
                 })
-                .then(data => {
-                    if (data.status === "approved") {
+                .then(verification => {
+                    if (verification.status === "approved") {
                         user.verified = true;
-                        user.save().then(result => {
-                                    res.status(200).send({
+                        user
+                            .save()
+                            .then(result => {
+                                return res.status(200).send({
                                     message: "Usuario verificado!",
-                                    data
+                                    verification
                                 })
                                 .catch(err => {
                                     console.log(err);
-                                    res.status(500).json({
+                                    return res.status(500).json({
                                         error: err
                                     })
                                 })
                         })
                     }
+                    if (verification.status === "pending") {
+                        user.verified = false;
+                        user
+                            .save()
+                            .then(result => {
+                                return res.status(401).send({
+                                    message: "Usuario não verificado!",
+                                    verification
+                                })
+                                .catch(err => {
+                                    console.log(err);
+                                    return res.status(500).json({
+                                        error: err
+                                    })
+                                })
+                        })
+                    }
+                    else {
+                        return res.status(400).send({
+                            message: "Erro no número de telefone ou código de verifição :(",
+                            verification
+                        })
+                    }
                 })
         } else {
-            res.status(400).send({
+            return res.status(400).send({
                 message: "Erro no número de telefone ou código de verifição :(",
                 phone: req.query.phone,
                 data
@@ -139,7 +165,56 @@ exports.user_verify = (req, res, next) => {
     })
     .catch(err => {
         console.log(err)
-        res.status(500).json({
+        return res.status(500).json({
+            error: err
+        })
+    })
+}
+
+
+// TODO - CHECK ERRORS
+exports.user_sendVerification = (req, res, next) => {
+    User.find({
+        email: req.body.email
+    })
+    .exec()
+    .then(user => {
+        if (user.length < 1) {
+            console.log(user)
+            return res.status(401).json()
+        }
+        if (req.body.phone) {
+            client
+                .verify
+                .services(process.env.SERVICE_ID)
+                .verifications
+                .create({
+                    to: `+${req.body.countryCode}`+`${req.body.phone}`,
+                    channel: 'sms'
+                })
+                .then(verification => {
+                        return res.status(200).send({
+                            message: "sms enviado!",
+                            verification
+                        })
+                        .catch(err => {
+                            console.log(err);
+                            return res.status(500).json({
+                                error: err
+                            })
+                        })
+                })
+            }
+            else {
+                return res.status(400).send({
+                    message: "Erro no número de telefone ou código de verifição :(",
+                    verification
+                })
+            }
+        })
+    .catch(err => {
+        console.log(err)
+        return res.status(500).json({
             error: err
         })
     })
