@@ -14,7 +14,7 @@ const database = require("./database.config.js")
 const mongoose = require("mongoose")
 mongoose.Promise = global.Promise // Database Config
 mongoose.set('useCreateIndex', true)
-mongoose.connect(database.url, { useNewUrlParser: true,  useUnifiedTopology: true })
+mongoose.connect(database.url, { useNewUrlParser: true, keepAlive: true, useUnifiedTopology: true})
 .then(() => {
     console.log("Conectado com sucesso ao Mongo")
   }).catch(error => {
