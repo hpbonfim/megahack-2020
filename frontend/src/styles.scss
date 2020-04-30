@@ -1,3 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~material-design-icons/iconfont/material-icons.css";
 
+@font-face {
+    font-family: 'Gilroy';
+    src: url(assets/fonts/Gilroy/Gilroy-Regular.ttf) format("opentype");
+}
+
+html {
+    font-family: 'Gilroy-Regular', sans-serif;
+}
+
+body {
+    margin: 0 !important;
+}
+  
+.align-center {
+    margin: 0 auto;
+}
