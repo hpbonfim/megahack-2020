@@ -1,36 +1,39 @@
-<div fxFlex="40" fxFlex.xs="100" class="align-center login-container">  
-  <form (ngSubmit)="handleSubmit()" [formGroup]="form">
+<div class="content">
+  <div 
+  fxFlex="100"
+  class="align-center" 
+  fxLayout="column"
+  fxLayoutAlign="start center">  
+  <div fxLayout="column" fxLayoutAlign="center center" class="box">
+      <img alt="Logo" src="../../assets/images/mideal-logo-black.png" />
 
-    <div class="content-login" fxLayout="column" fxFlexFill>
-      <img src="../../assets/images/logomideal.png" />
-  
-      <div fxFlex="15">
-        <mat-form-field appearance="standard" color="primary" fxFlex="">
-          <mat-label>E-mail</mat-label>
-  
-          <input formControlName="email" type="text" ngDefaultControl matInput color="accent" />
-  
-          <mat-error>Campo obrigatório</mat-error>
-        </mat-form-field>
-      </div>
-  
-      <div fxFlex="15">
-        <mat-form-field appearance="standard" color="primary" fxFlex="">
-          <mat-label>Senha</mat-label>
-  
-          <input formControlName="password" type="password" ngDefaultControl matInput color="accent" />
-  
-          <mat-error>Campo obrigatório</mat-error>
-        </mat-form-field>
-      </div>
-      <br>
-  
-      <div fxFlex="15">
-        <button fxFlexFill mat-raised-button color="accent" type="submit">Entrar</button>
-      </div>
-  
+      <form [formGroup]="form" class="w-100"> 
+
+        <div fxLayout="column">
+          <img src="../../assets/images/logomideal.png" />
+      
+            <mat-form-field appearance="outline" color="primary">
+              <mat-label>E-mail</mat-label>
+      
+              <input formControlName="email" type="text" ngDefaultControl matInput/>
+      
+              <mat-error>{{getErrorMessage('email')}}</mat-error>
+            </mat-form-field>
+      
+            <mat-form-field appearance="outline" color="primary">
+              <mat-label>Senha</mat-label>
+      
+              <input formControlName="password" type="password" ngDefaultControl matInput/>
+      
+              <mat-error>{{getErrorMessage('password')}}</mat-error>
+            </mat-form-field>
+      
+        </div>
+      
+      </form>
+
+      <button mat-raised-button color="accent" class="btn-accent" (click)="handleSubmit()">Acessar</button>
+      <a class="text-muted" href="/users">Criar conta</a>
     </div>
-  
-  </form>
-  
+  </div>
 </div>

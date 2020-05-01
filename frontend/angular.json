@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-pwa-template": {
+    "mideal": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-pwa-template",
+            "outputPath": "dist/mideal",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-pwa-template:build"
+            "browserTarget": "mideal:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-pwa-template:build:production"
+              "browserTarget": "mideal:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-pwa-template:build"
+            "browserTarget": "mideal:build"
           }
         },
         "test": {
@@ -116,11 +116,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-pwa-template:serve"
+            "devServerTarget": "mideal:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular-pwa-template:serve:production"
+              "devServerTarget": "mideal:serve:production"
             }
           }
         },
@@ -131,7 +131,7 @@
       }
     }
   },
-  "defaultProject": "angular-pwa-template",
+  "defaultProject": "mideal",
   "cli": {
     "analytics": "95d1f147-410b-4821-8b1d-2b8beb7ce3ee"
   }

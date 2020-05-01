@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~material-design-icons/iconfont/material-icons.css";
 
+// tipografia
 @font-face {
     font-family: 'Gilroy';
     src: url(assets/fonts/Gilroy/Gilroy-Regular.ttf) format("opentype");
@@ -10,19 +11,35 @@ html {
     font-family: 'Gilroy-Regular', sans-serif;
 }
 
+a {
+    color: #6F7584;
+    text-decoration: underline;
+}
+
 body {
     margin: 0 !important;
 }
 
 //botão
-
 button {
     border-radius: 15px 15px 15px 15px !important;
 }
 .btn-accent {
     background-image: linear-gradient(to right, #CD3641 0%, #E98356 100%) !important;
+    padding: 0 30px !important;
+    font-size: 18px !important;
 }
 
+//form fields
+input {
+    min-width: 300px;
+}
+.mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 0.5em 0 1em 0 !important;
+}
 
-
-// .btn-grad:hover { background-position: right center; }
+//helpers
+.w-100 {
+    width: 100% !important;
+    min-width: 100% !important;
+}

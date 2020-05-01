@@ -1,22 +1,28 @@
+img {
+  max-width: 150px;
+}
+
 form {
-  margin-top: 10%;
+  margin-top: 20px;
+}
+
+button {
+  margin-top: 80px;
+}
+
+.box {
+  min-width: 300px;
+  padding-top: 200px;
 }
 
 .content {
   height: 100vh;
-  background-color: #9310ed;
 }
 
 .content-login {
   padding: 30px;
 }
 
-button {
-  border-radius: 0;
-  padding: 5px;
-}
-
-.login-container {
-  height: 100vh;
-  background-color: #9310ed;
+a {
+  margin-top: 10px;
 }

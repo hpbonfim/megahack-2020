@@ -6,8 +6,4 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  constructor(private route: Router) {
-  }
-  title = 'angular-pwa-template';
-}
+export class AppComponent {}
