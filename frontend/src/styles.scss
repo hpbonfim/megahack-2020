@@ -13,7 +13,16 @@ html {
 body {
     margin: 0 !important;
 }
-  
-.align-center {
-    margin: 0 auto;
+
+//botão
+
+button {
+    border-radius: 15px 15px 15px 15px !important;
 }
+.btn-accent {
+    background-image: linear-gradient(to right, #CD3641 0%, #E98356 100%) !important;
+}
+
+
+
+// .btn-grad:hover { background-position: right center; }

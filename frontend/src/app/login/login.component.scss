@@ -1,11 +1,13 @@
-:host ::ng-deep html {
-    background-color: #3700b3;
-  }
 form {
   margin-top: 10%;
 }
 
 .content {
+  height: 100vh;
+  background-color: #9310ed;
+}
+
+.content-login {
   padding: 30px;
 }
 
