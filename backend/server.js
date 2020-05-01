@@ -39,6 +39,10 @@ mongoose.connect(database.url, { useNewUrlParser: true, keepAlive: true, useUnif
 // //CORS middleware secondary
 // app.use(cors())
 
+//function routes
+const functionRoutes = require("./api/routes/function")
+app.use("/function", functionRoutes)
+
 //routes
 const userRoutes = require("./api/routes/user")
 app.use("/user", userRoutes)
