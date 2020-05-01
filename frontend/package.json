@@ -7,7 +7,7 @@
     "start:prod": "ng serve --prod",
     "build": "ng build",
     "docker:build": "docker build . -t megahack/frontend:latest && docker push megahack/frontend:latest",
-    "build:prod": "ng build --prod --output-path docs --base-href / && npm run docker:prod",
+    "build:prod": "ng build --prod --output-path docs --base-href /",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

@@ -1,12 +1,26 @@
-@import '~@angular/material/theming';
+@import './pallete-orange.scss';
 
-@include mat-core();
-
-$candy-app-primary: mat-palette($mat-gray, A200);
-$candy-app-accent:  mat-palette($mat-teal);
+$primary: mat-palette($pallete-orange-primary);
+$accent:  mat-palette($pallete-orange-accent);
 
 $candy-app-warn:    mat-palette($mat-red);
 
-$candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+$theme: mat-light-theme($primary, $accent, $candy-app-warn);
 
-@include angular-material-theme($candy-app-theme);
+@include angular-material-theme($theme);
+
+.color.primary {
+  color: mat-color($primary);
+}
+
+.color.accent {
+  color: mat-color($accent);
+}
+
+.bg.primary {
+  background-color: mat-color($primary);
+}
+
+.bg.accent {
+  background-color: mat-color($accent);
+}
