@@ -1,0 +1,65 @@
+<div class="content">
+  <div 
+  fxFlex="100"
+  class="align-center" 
+  fxLayout="column"
+  fxLayoutAlign="start center">  
+  <div fxLayout="column" fxLayoutAlign="center center" class="box">
+      <img alt="Logo" src="../../assets/images/mideal-logo-black.png" />
+
+      <form [formGroup]="form" class="w-100"> 
+
+        <div fxLayout="column">      
+          <mat-form-field appearance="outline" color="primary">
+            <mat-label>Nome completo</mat-label>
+    
+            <input formControlName="fullName" type="text" ngDefaultControl matInput/>
+    
+            <mat-error>{{getErrorMessage('fullName')}}</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" color="primary">
+            <mat-label>Telefone</mat-label>
+    
+            <input formControlName="phone"
+              type="text"
+              ngDefaultControl
+              matInput
+              mask="(00) 00009-0000" 
+              placeholder="(00) 00000-0000"
+              autocomplete="off"/>
+
+            <mat-error>{{getErrorMessage('phone')}}</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" color="primary">
+            <mat-label>E-mail</mat-label>
+    
+            <input formControlName="email" type="text" ngDefaultControl matInput/>
+    
+            <mat-error>{{getErrorMessage('email')}}</mat-error>
+          </mat-form-field>
+    
+          <mat-form-field appearance="outline" color="primary">
+            <mat-label>Senha</mat-label>
+    
+            <input formControlName="password" type="password" ngDefaultControl matInput/>
+    
+            <mat-error>{{getErrorMessage('password')}}</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline" color="primary">
+            <mat-label>Confirmar senha</mat-label>
+    
+            <input formControlName="confirmPassword" type="password" ngDefaultControl matInput/>
+    
+            <mat-error>{{getErrorMessage('confirmPassword')}}</mat-error>
+          </mat-form-field>
+        </div>
+      
+      </form>
+
+      <button mat-raised-button color="accent" class="btn-accent" (click)="handleSubmit()">Salvar</button>
+      <a class="text-muted" (click)="goBack()">Voltar</a>
+    </div>
+  </div>
+</div>

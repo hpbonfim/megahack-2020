@@ -10,7 +10,6 @@
       <form [formGroup]="form" class="w-100"> 
 
         <div fxLayout="column">
-          <img src="../../assets/images/logomideal.png" />
       
             <mat-form-field appearance="outline" color="primary">
               <mat-label>E-mail</mat-label>
@@ -33,7 +32,7 @@
       </form>
 
       <button mat-raised-button color="accent" class="btn-accent" (click)="handleSubmit()">Acessar</button>
-      <a class="text-muted" href="/users">Criar conta</a>
+      <a class="text-muted" [routerLink]="['/signup']">Criar conta</a>
     </div>
   </div>
 </div>
