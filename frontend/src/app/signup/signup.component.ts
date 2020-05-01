@@ -7,6 +7,7 @@ import markForm from '../shared/functions/mark-form.function';
 import messageFormValidation from '../shared/functions/form-message-validation.function';
 import { UserRegistersService } from './user-registers.service';
 import { Router } from '@angular/router';
+import { User } from '../shared/models/user.model';
 
 @Component({
   selector: 'app-signup',
@@ -28,14 +29,14 @@ export class SignupComponent implements OnInit {
   handleSubmit = async () => {
     markForm(this.form);
 
-    if (!this.validate() || this.form.invalid) { return; }
+    if (!this.formValidation() || this.form.invalid) { return; }
 
     const { message, result} = await this.userRegistersService
       .create(this.formatObject()).toPromise();
 
     if (result) {
       Swal.fire('Sucesso', message, 'success').then(() => {
-        this.router.navigate(['/login']);
+        this.router.navigate([`/user-confirmation/${result.stateCode}${result.phoneNumber}`]);
       });
     }
   }
@@ -43,14 +44,6 @@ export class SignupComponent implements OnInit {
   getErrorMessage = (controlName) =>  messageFormValidation(this.form.get(controlName));
 
   goBack = () => window.history.back();
-
-  private formatObject() {
-    const { phone } = this.form.value;
-    const phoneNumber = phone.substring(2);
-    const stateCode = phone.substring(0, 2);
-
-    return {...this.form.value, phoneNumber, stateCode};
-  }
 
   private createForm() {
     this.form = new FormGroup({
@@ -64,7 +57,15 @@ export class SignupComponent implements OnInit {
     });
   }
 
-  private validate () {
+  private formatObject() {
+    const { phone } = this.form.value;
+    const phoneNumber = phone.substring(2);
+    const stateCode = phone.substring(0, 2);
+
+    return {...this.form.value, phoneNumber, stateCode};
+  }
+
+  private formValidation() {
     const { password, confirmPassword } = this.form.value;
 
     if (password !== confirmPassword) {

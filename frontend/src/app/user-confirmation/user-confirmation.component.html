@@ -1,0 +1,50 @@
+<div class="content">
+  <div
+    fxFlex="100"
+    class="align-center"
+    fxLayout="column"
+    fxLayoutAlign="start center"
+  >
+    <div fxLayout="column" fxLayoutAlign="center center" class="box">
+      <img alt="Logo" src="../../assets/images/mideal-logo-black.png" />
+
+      <form [formGroup]="form" class="w-100">
+        <div fxLayout="column">
+          <p>
+            <span class="color accent">Olá!</span> enviamos uma mensagem com o 
+            código de confirmação para o telefone {{ phoneNumber | mask: "(00) 00009-0000" }},
+            informe o código recebido abaixo para continuar:
+          </p>
+
+          <mat-form-field appearance="outline" color="primary">
+            <mat-label>Código de confirmação</mat-label>
+
+            <input
+              formControlName="confirmCode"
+              type="text"
+              ngDefaultControl
+              matInput
+            />
+
+            <mat-error>{{ getErrorMessage("confirmCode") }}</mat-error>
+          </mat-form-field>
+        </div>
+      </form>
+
+      <button
+        mat-raised-button
+        color="accent"
+        class="btn-accent"
+        (click)="handleSubmit()"
+      >
+        Continuar
+      </button>
+      <button
+        mat-raised-button
+        (click)="handleSendAgain()"
+      >
+        Enviar novamente <fa-icon [icon]="faPaperPlane"></fa-icon>
+      </button>
+    </div>
+  </div>
+</div>
