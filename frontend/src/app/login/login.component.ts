@@ -6,6 +6,7 @@ import markForm from '../shared/functions/mark-form.function';
 import messageFormValidation from '../shared/functions/form-message-validation.function';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../shared/models/user.model';
+import { UserDataService } from '../user-confirmation/user-data.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private userDataService: UserDataService
   ) {}
 
   ngOnInit(): void {
@@ -33,7 +35,7 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    const user = await this.loginService.create(this.form.value).toPromise();
+    const user = await this.loginService.post(this.form.value).toPromise();
 
     this.redirectUser(user);
   };
@@ -63,6 +65,9 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    this.router.navigate([`/user-confirmation/${user.stateCode}${user.phoneNumber}`]);
+    const formattedPhone = user.stateCode + user.phoneNumber;
+    this.userDataService.setPhoneNumber(formattedPhone);
+    this.userDataService.setUserData(user);
+    this.router.navigate([`/user-confirmation`]);
   }
 }

@@ -12,6 +12,8 @@ import { NgxMaskModule } from 'ngx-mask';
 import { SignupRoutingModule } from './signup-routing.module';
 import { SignupComponent } from './signup.component';
 import { UserRegistersService } from './user-registers.service';
+import { UserDataService } from '../user-confirmation/user-data.service';
+import { UserConfirmationSmsService } from '../user-confirmation/user-confirmation-sms.service';
 
 @NgModule({
   declarations: [SignupComponent],
@@ -26,8 +28,12 @@ import { UserRegistersService } from './user-registers.service';
 
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
   ],
-  providers: [UserRegistersService]
+  providers: [
+    UserRegistersService,
+    UserDataService,
+    UserConfirmationSmsService,
+  ],
 })
-export class SignupModule { }
+export class SignupModule {}

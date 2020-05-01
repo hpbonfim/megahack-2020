@@ -24,7 +24,7 @@ export abstract class BaseService<T> {
 
   getById = (id: number): Observable<T> => this.http.get<T>(`${this.getApiUrl()}/${id}`, this.httpOptions);
 
-  create = (model: T): Observable<any> => this.http.post<any>(this.getApiUrl(), model);
+  post = (model: T): Observable<any> => this.http.post<any>(this.getApiUrl(), model);
 
   delete = (id: number): Observable<any> => this.http.delete<any>(`${this.getApiUrl()}/${id}`);
 

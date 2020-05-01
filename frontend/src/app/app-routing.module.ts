@@ -19,7 +19,7 @@ const routes: Routes = [
     loadChildren: () => import('./signup/signup.module').then(m => m.SignupModule)
   },
   {
-    path: 'user-confirmation/:phoneNumber',
+    path: 'user-confirmation',
     loadChildren: () => import('./user-confirmation/user-confirmation.module').then(m => m.UserConfirmationModule)
   },
   { path: 'user-menu', loadChildren: () => import('./user-menu/user-menu.module').then(m => m.UserMenuModule) },

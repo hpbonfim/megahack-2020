@@ -5,10 +5,13 @@ import Swal from 'sweetalert2';
 export class HttpErrorHandler implements ErrorHandler {
   handleError(error) {
     const { rejection } = error;
-    const handleErrors = [401, 409, 500];
+    const handleErrors = [401, 404, 409, 500];
 
-    if (handleErrors.includes(rejection.status)) {
-      Swal.fire('Oops...', rejection.error.message, 'error');
+    if (rejection && handleErrors.includes(rejection.status)) {
+      const message =
+        (rejection.error || {}).message ||
+        'Houve um erro, já estamos trabalhando nisso.';
+      Swal.fire('Oops...', message, 'error');
       return;
     }
 

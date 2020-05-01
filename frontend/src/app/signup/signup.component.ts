@@ -8,19 +8,23 @@ import messageFormValidation from '../shared/functions/form-message-validation.f
 import { UserRegistersService } from './user-registers.service';
 import { Router } from '@angular/router';
 import { User } from '../shared/models/user.model';
+import { UserDataService } from '../user-confirmation/user-data.service';
+import { UserConfirmationSmsService } from '../user-confirmation/user-confirmation-sms.service';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss']
+  styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent implements OnInit {
   form: FormGroup;
 
   constructor(
     private router: Router,
-    private userRegistersService: UserRegistersService
-  ) { }
+    private userRegistersService: UserRegistersService,
+    private userDataService: UserDataService,
+    private userConfirmationSmsService: UserConfirmationSmsService
+  ) {}
 
   ngOnInit(): void {
     this.createForm();
@@ -29,19 +33,23 @@ export class SignupComponent implements OnInit {
   handleSubmit = async () => {
     markForm(this.form);
 
-    if (!this.formValidation() || this.form.invalid) { return; }
+    if (!this.formValidation() || this.form.invalid) {
+      return;
+    }
 
-    const { message, result} = await this.userRegistersService
-      .create(this.formatObject()).toPromise();
+    const { message, result } = await this.userRegistersService
+      .post(this.formatObject())
+      .toPromise();
 
     if (result) {
-      Swal.fire('Sucesso', message, 'success').then(() => {
-        this.router.navigate([`/user-confirmation/${result.stateCode}${result.phoneNumber}`]);
+      Swal.fire('Sucesso', 'Cadastro realizado!', 'success').then(() => {
+        this.sendSmsAndRedirect(result);
       });
     }
-  }
+  };
 
-  getErrorMessage = (controlName) =>  messageFormValidation(this.form.get(controlName));
+  getErrorMessage = (controlName) =>
+    messageFormValidation(this.form.get(controlName));
 
   goBack = () => window.history.back();
 
@@ -62,16 +70,27 @@ export class SignupComponent implements OnInit {
     const phoneNumber = phone.substring(2);
     const stateCode = phone.substring(0, 2);
 
-    return {...this.form.value, phoneNumber, stateCode};
+    return { ...this.form.value, phoneNumber, stateCode };
   }
 
   private formValidation() {
     const { password, confirmPassword } = this.form.value;
 
     if (password !== confirmPassword) {
-      this.form.get('confirmPassword').setErrors({confirmPassword: true});
+      this.form.get('confirmPassword').setErrors({ confirmPassword: true });
       return;
     }
     return true;
+  }
+
+  private async sendSmsAndRedirect(user: User) {
+    const { _id, stateCode, phoneNumber } = user;
+    const phone = stateCode + phoneNumber;
+
+    await this.userConfirmationSmsService.post({ _id }).toPromise();
+
+    this.userDataService.setPhoneNumber(phone);
+    this.userDataService.setUserData(user);
+    this.router.navigate([`/user-confirmation`]);
   }
 }

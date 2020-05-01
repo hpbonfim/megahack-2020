@@ -11,8 +11,9 @@ import { NgxMaskModule } from 'ngx-mask';
 
 import { UserConfirmationRoutingModule } from './user-confirmation-routing.module';
 import { UserConfirmationComponent } from './user-confirmation.component';
-import { UserConfirmationService } from './user-confirmation.service';
-
+import { UserDataService } from './user-data.service';
+import { UserConfirmationSmsService } from './user-confirmation-sms.service';
+import { UserConfirmationCodeService } from './user-confirmation-code.service';
 
 @NgModule({
   declarations: [UserConfirmationComponent],
@@ -27,10 +28,12 @@ import { UserConfirmationService } from './user-confirmation.service';
 
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   providers: [
-    UserConfirmationService
-  ]
+    UserDataService,
+    UserConfirmationSmsService,
+    UserConfirmationCodeService,
+  ],
 })
-export class UserConfirmationModule { }
+export class UserConfirmationModule {}

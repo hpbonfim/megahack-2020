@@ -11,22 +11,23 @@
       <form [formGroup]="form" class="w-100">
         <div fxLayout="column">
           <p>
-            <span class="color accent">Olá!</span> enviamos uma mensagem com o 
-            código de confirmação para o telefone {{ phoneNumber | mask: "(00) 00009-0000" }},
-            informe o código recebido abaixo para continuar:
+            <span class="color accent">Olá!</span> enviamos uma mensagem com o
+            código de confirmação para o telefone
+            {{ phoneNumber | mask: "(00) 00009-0000" }}, informe o código
+            recebido abaixo para continuar:
           </p>
 
           <mat-form-field appearance="outline" color="primary">
             <mat-label>Código de confirmação</mat-label>
 
             <input
-              formControlName="confirmCode"
+              formControlName="code"
               type="text"
               ngDefaultControl
               matInput
             />
 
-            <mat-error>{{ getErrorMessage("confirmCode") }}</mat-error>
+            <mat-error>{{ getErrorMessage("code") }}</mat-error>
           </mat-form-field>
         </div>
       </form>
@@ -39,10 +40,7 @@
       >
         Continuar
       </button>
-      <button
-        mat-raised-button
-        (click)="handleSendAgain()"
-      >
+      <button mat-raised-button (click)="handleSendAgain()">
         Enviar novamente <fa-icon [icon]="faPaperPlane"></fa-icon>
       </button>
     </div>
