@@ -1,42 +1,68 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { LoginService } from './login.service';
 import markForm from '../shared/functions/mark-form.function';
 import messageFormValidation from '../shared/functions/form-message-validation.function';
+import { ActivatedRoute, Router } from '@angular/router';
+import { User } from '../shared/models/user.model';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private loginService: LoginService) { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private loginService: LoginService
+  ) {}
 
   ngOnInit(): void {
     this.createForm();
+    this.fillForm();
   }
 
   handleSubmit = async () => {
     markForm(this.form);
 
-    if (this.form.invalid) { return; }
+    if (this.form.invalid) {
+      return;
+    }
 
-    const response = await this.loginService.create(this.form.value).toPromise();
+    const user = await this.loginService.create(this.form.value).toPromise();
 
-    console.log(response);
+    this.redirectUser(user);
+  };
 
-  }
-
-  getErrorMessage = (controlName) =>  messageFormValidation(this.form.get(controlName));
+  getErrorMessage = (controlName) =>
+    messageFormValidation(this.form.get(controlName));
 
   private createForm() {
     this.form = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', Validators.required)
+      password: new FormControl('', Validators.required),
     });
   }
 
+  private fillForm() {
+    const { queryParams } = this.activatedRoute.snapshot;
+    const { email } = queryParams;
+
+    if (email) {
+      this.form.get('email').setValue(email);
+    }
+  }
+
+  private redirectUser(user: User) {
+    if (user.verified) {
+      this.router.navigate(['/menu']);
+      return;
+    }
+
+    this.router.navigate([`/user-confirmation/${user.stateCode}${user.phoneNumber}`]);
+  }
 }
