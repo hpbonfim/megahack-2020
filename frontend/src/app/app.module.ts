@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpErrorHandler } from './shared/http-handlers/http-error-handler.service';
 import { HttpSpinnerRequestInterceptor } from './shared/http-handlers/http-spinner-interceptor.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -29,6 +30,7 @@ import { HttpSpinnerRequestInterceptor } from './shared/http-handlers/http-spinn
     BrowserAnimationsModule,
     NgxSpinnerModule,
     NgxMaskModule.forRoot(),
+    FontAwesomeModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpSpinnerRequestInterceptor, multi: true },
