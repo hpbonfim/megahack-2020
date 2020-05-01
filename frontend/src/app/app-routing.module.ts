@@ -1,32 +1,45 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-
 const routes: Routes = [
   {
-    path: '', redirectTo: 'home', pathMatch: 'full'
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+    loadChildren: () =>
+      import('./public/home/home.module').then((m) => m.HomeModule),
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
+    loadChildren: () =>
+      import('./public/login/login.module').then((m) => m.LoginModule),
   },
   {
     path: 'signup',
-    loadChildren: () => import('./signup/signup.module').then(m => m.SignupModule)
+    loadChildren: () =>
+      import('./public/signup/signup.module').then((m) => m.SignupModule),
   },
   {
     path: 'user-confirmation',
-    loadChildren: () => import('./user-confirmation/user-confirmation.module').then(m => m.UserConfirmationModule)
+    loadChildren: () =>
+      import('./public/user-confirmation/user-confirmation.module').then(
+        (m) => m.UserConfirmationModule
+      ),
   },
-  { path: 'user-menu', loadChildren: () => import('./user-menu/user-menu.module').then(m => m.UserMenuModule) },
+  {
+    path: 'user-menu',
+    loadChildren: () =>
+      import('./private/user-menu/user-menu.module').then(
+        (m) => m.UserMenuModule
+      ),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

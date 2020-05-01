@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{pQon:function(n,t,o){"use strict";o.d(t,"a",(function(){return s}));var c=o("FXLl"),e=o("fXoL"),r=o("tk/3");let s=(()=>{class n extends c.a{constructor(n){super(n),this.API_URL="function/send"}}return n.\u0275fac=function(t){return new(t||n)(e.Vb(r.b))},n.\u0275prov=e.Ib({token:n,factory:n.\u0275fac}),n})()}}]);
