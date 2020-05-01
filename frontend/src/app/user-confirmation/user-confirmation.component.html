@@ -11,8 +11,8 @@
       <form [formGroup]="form" class="w-100">
         <div fxLayout="column">
           <p>
-            <span class="color accent">Olá!</span> enviamos uma mensagem com um
-            código para o telefone {{ phoneNumber | mask: "(00) 00009-0000" }},
+            <span class="color accent">Olá!</span> enviamos uma mensagem com o 
+            código de confirmação para o telefone {{ phoneNumber | mask: "(00) 00009-0000" }},
             informe o código recebido abaixo para continuar:
           </p>
 
@@ -37,7 +37,7 @@
         class="btn-accent"
         (click)="handleSubmit()"
       >
-        Confirmar
+        Continuar
       </button>
       <button
         mat-raised-button
