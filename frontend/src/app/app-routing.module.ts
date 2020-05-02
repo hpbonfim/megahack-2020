@@ -30,12 +30,13 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'user-menu',
+    path: 'user-shell',
     loadChildren: () =>
-      import('./private/user-menu/user-menu.module').then(
-        (m) => m.UserMenuModule
+      import('./private/user-shell/user-shell.module').then(
+        (m) => m.UserShellModule
       ),
   },
+  { path: '**', redirectTo: 'home' },
 ];
 
 @NgModule({

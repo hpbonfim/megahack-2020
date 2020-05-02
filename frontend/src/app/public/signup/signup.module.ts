@@ -14,17 +14,13 @@ import { SignupComponent } from './signup.component';
 import { UserRegistersService } from './user-registers.service';
 import { UserDataService } from '../user-confirmation/user-data.service';
 import { UserConfirmationSmsService } from '../user-confirmation/user-confirmation-sms.service';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [SignupComponent],
   imports: [
-    HttpClientModule,
-    CommonModule,
     SignupRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    FlexLayoutModule,
-    NgxMaskModule.forRoot(),
+    SharedModule,
 
     MatFormFieldModule,
     MatInputModule,

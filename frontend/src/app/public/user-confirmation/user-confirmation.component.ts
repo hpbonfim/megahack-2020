@@ -52,7 +52,7 @@ export class UserConfirmationComponent implements OnInit {
 
     if (verification) {
       Swal.fire('Sucesso', 'Códico validado!', 'success').then(() => {
-        this.router.navigate(['/user-menu']);
+        this.router.navigate(['/user-shell']);
       });
     }
   };

@@ -12,16 +12,13 @@ import { LoginComponent } from './login.component';
 import { LoginService } from './login.service';
 import { NgxMaskModule } from 'ngx-mask';
 import { UserDataService } from '../user-confirmation/user-data.service';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [LoginComponent],
   imports: [
     LoginRoutingModule,
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    FlexLayoutModule,
-    NgxMaskModule.forRoot(),
+    SharedModule,
 
     MatFormFieldModule,
     MatInputModule,

@@ -1,0 +1,84 @@
+<div class="content">
+  <div class="box" fxFlex="30" fxFlex.xs="100">
+    <div class="create-contract bg primary">
+      <span class="font-semibold">Caracterize sua assinatura</span>
+    </div>
+    <button
+      mat-raised-button
+      color="accent"
+      class="btn-accent create-contract-btn"
+      (click)="goToContractModels()"
+    >
+      Crie já
+    </button>
+  </div>
+  <div class="box pr-1" fxFlex="30" fxFlex.xs="50">
+    <div class="assign-type company">
+      <img src="../../assets/images/icon-assign-company.png" />
+    </div>
+    <small>Assinatura Empresa</small>
+  </div>
+  <div class="box pl-1" fxFlex="30" fxFlex.xs="50">
+    <div class="assign-type individual">
+      <img src="../../assets/images/icon-assign-individual.png" />
+    </div>
+    <small>Assinatura Individual</small>
+  </div>
+</div>
+
+<div class="content-section">
+  <mat-divider></mat-divider>
+  <br />
+  <span class="title">Modelos Populares</span>
+</div>
+<div class="content font-semibold">
+  <div class="box-model pr-1" fxFlex="6" fxFlex.xs="25">
+    <div class="box-model-type business">
+      <img src="../../assets/images/icon-model-business.png" />
+    </div>
+    <small>Negócios e Vendas</small>
+  </div>
+  <div class="box-model pr-1" fxFlex="6" fxFlex.xs="25">
+    <div class="box-model-type location">
+      <img src="../../assets/images/icon-model-location.png" />
+    </div>
+    <small>Locações de Imóveis</small>
+  </div>
+  <div class="box-model pr-1" fxFlex="6" fxFlex.xs="25">
+    <div class="box-model-type design">
+      <img src="../../assets/images/icon-model-design.png" />
+    </div>
+    <small>Design Gráfico</small>
+  </div>
+  <div class="box-model pr-1" fxFlex="6" fxFlex.xs="25">
+    <div class="box-model-type dev">
+      <img src="../../assets/images/icon-model-dev.png" />
+    </div>
+    <small>Desenvol. de Software</small>
+  </div>
+</div>
+<br /><br />
+<div class="content-section">
+  <mat-divider></mat-divider>
+  <br />
+  <span class="title font-semibold">Meus últimos contratos</span>
+</div>
+<div class="content-section">
+  <mat-list role="list">
+    <mat-list-item role="listitem">
+      <mat-icon>timeline</mat-icon>
+      <span class="text-muted">Ata de Reunião</span>
+      <img src="../../assets/images/tmp-img-1.png" />
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <mat-icon>timeline</mat-icon>
+      <span class="text-muted">Procuração</span>
+      <img src="../../assets/images/tmp-img-1.png" />
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <mat-icon>timeline</mat-icon>
+      <span class="text-muted">Acordo de Sócios</span>
+      <img src="../../assets/images/tmp-img-2.png" />
+    </mat-list-item>
+  </mat-list>
+</div>

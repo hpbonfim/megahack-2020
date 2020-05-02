@@ -1,0 +1,43 @@
+<nav class="bottom-nav">
+  <a
+    class="bottom-nav__action"
+    [class.bottom-nav__action--active]="active === menu.index"
+    (click)="active = menu.index"
+  >
+    <mat-icon appearance="outline" class="bottom-nav__icon">home</mat-icon>
+    <span class="bottom-nav__label">Início</span>
+  </a>
+
+  <a
+    class="bottom-nav__action"
+    [class.bottom-nav__action--active]="active === menu.search"
+    (click)="active = menu.search"
+  >
+    <mat-icon class="bottom-nav__icon">search</mat-icon>
+
+    <span class="bottom-nav__label">Buscar</span>
+  </a>
+
+  <a
+    class="bottom-nav__action"
+    [class.bottom-nav__action--active]="active === menu.requests"
+    (click)="active = menu.requests"
+  >
+    <mat-icon class="bottom-nav__icon">description</mat-icon>
+    <span class="bottom-nav__label">Pedidos</span>
+  </a>
+
+  <a
+    class="bottom-nav__action"
+    [class.bottom-nav__action--active]="active === menu.profile"
+    (click)="active = menu.profile"
+  >
+    <img
+      class="bottom-nav__icon"
+      alt="Perfil image"
+      width="20"
+      src="../../../assets/images/perfil-photo-small.png"
+    />
+    <span class="bottom-nav__label">Perfil</span>
+  </a>
+</nav>

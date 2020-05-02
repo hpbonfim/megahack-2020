@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';  // Adicionei aqui
+import { FormsModule } from '@angular/forms'; // Adicionei aqui
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, ErrorHandler } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -8,18 +8,16 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgxMaskModule } from 'ngx-mask';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpErrorHandler } from './shared/http-handlers/http-error-handler.service';
 import { HttpSpinnerRequestInterceptor } from './shared/http-handlers/http-spinner-interceptor.service';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     HttpClientModule,
     CommonModule,
@@ -33,9 +31,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FontAwesomeModule,
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: HttpSpinnerRequestInterceptor, multi: true },
-    {provide: ErrorHandler, useClass: HttpErrorHandler}
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpSpinnerRequestInterceptor,
+      multi: true,
+    },
+    { provide: ErrorHandler, useClass: HttpErrorHandler },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

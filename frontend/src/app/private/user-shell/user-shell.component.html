@@ -1,0 +1,39 @@
+<div class="content">
+  <div
+    fxFlex="100"
+    class="align-center"
+    fxLayout="column"
+    fxLayoutAlign="start stretch"
+  >
+    <div
+      fxFlex="100"
+      class="align-center"
+      fxLayout="row"
+      fxLayoutAlign="start start"
+    >
+      <img
+        alt="Perfil image"
+        class="perfil-photo"
+        src="../../../assets/images/perfil-photo.png"
+      />
+
+      <mat-form-field appearance="standard" fxFlex="70">
+        <mat-label>Busque um tipo de contrato</mat-label>
+        <input matInput />
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
+
+    <div fxFill class="align-center" fxLayout="row" fxLayoutAlign="start start">
+      <mat-tab-group fxFill mat-align-tabs="start" color="accent">
+        <mat-tab label="Menu">
+          <app-page-menu></app-page-menu>
+        </mat-tab>
+        <mat-tab label="Modelos"></mat-tab>
+        <mat-tab label="Meus Contratos"></mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>
+
+<app-bottom-menu></app-bottom-menu>

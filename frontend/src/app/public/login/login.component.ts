@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
 
   private redirectUser(user: User) {
     if (user.verified) {
-      this.router.navigate(['/user-menu']);
+      this.router.navigate(['/user-shell']);
       return;
     }
 

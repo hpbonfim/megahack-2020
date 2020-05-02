@@ -1,45 +1,92 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~material-design-icons/iconfont/material-icons.css";
+@import "~material-bottom-nav";
+
+// geral
+body {
+  margin: 0 !important;
+}
 
 // tipografia
 @font-face {
-    font-family: 'Gilroy';
-    src: url(assets/fonts/Gilroy/Gilroy-Regular.ttf) format("opentype");
+  font-family: "Gilroy";
+  src: url(assets/fonts/Gilroy/Gilroy-Regular.ttf) format("opentype");
 }
 
 html {
-    font-family: 'Gilroy-Regular', sans-serif;
+  font-family: "Gilroy-Regular", sans-serif;
 }
 
 a {
-    color: #6F7584;
-    text-decoration: underline;
+  color: #6f7584;
+  text-decoration: underline;
 }
 
-body {
-    margin: 0 !important;
+.text-muted {
+  color: #6c7280 !important;
+}
+
+.font-semibold {
+  font-family: "Gilroy-SemiBold", sans-serif;
 }
 
 //botão
 button {
-    border-radius: 15px 15px 15px 15px !important;
+  border-radius: 15px 15px 15px 15px !important;
 }
 .btn-accent {
-    background-image: linear-gradient(to right, #CD3641 0%, #E98356 100%) !important;
-    padding: 0 30px !important;
-    font-size: 18px !important;
+  background-image: linear-gradient(
+    to right,
+    #cd3641 0%,
+    #e98356 100%
+  ) !important;
+  padding: 0 30px !important;
+  font-size: 18px !important;
 }
 
 //form fields
 input {
-    min-width: 300px;
+  min-width: 300px;
 }
 .mat-form-field-appearance-outline .mat-form-field-infix {
-    padding: 0.5em 0 1em 0 !important;
+  padding: 0.5em 0 1em 0 !important;
 }
 
 //helpers
 .w-100 {
-    width: 100% !important;
-    min-width: 100% !important;
+  width: 100% !important;
+  min-width: 100% !important;
+}
+
+$padding-1: 0.5rem;
+$padding-2: 1rem;
+
+.pr-1 {
+  padding-right: $padding-1;
+}
+
+.pl-1 {
+  padding-left: $padding-1;
+}
+
+.mt-2 {
+  margin-top: $padding-2;
+}
+
+.align-self-center {
+  align-self: center;
+}
+
+.bottom-nav {
+  @include bottom-nav(
+    $background-color: #ffffff,
+    $active-color: #e26852,
+    $inactive-color: #000000,
+    $hide-inactive-labels: false
+  );
+
+  .bottom-nav__action {
+    display: flex;
+    flex-direction: column;
+  }
 }

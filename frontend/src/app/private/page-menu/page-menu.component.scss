@@ -1,0 +1,124 @@
+$text-color: #f4900c;
+
+$linear-assign-individual: linear-gradient(
+  to right,
+  #cd3636 0%,
+  #e99d56 100%
+) !important;
+$linear-assign-company: linear-gradient(
+  to right,
+  #4b36cd 0%,
+  #56b4e9 100%
+) !important;
+$linear-business: linear-gradient(
+  to right,
+  #cd3641 0%,
+  #e98356 100%
+) !important;
+$linear-location: linear-gradient(
+  to right,
+  #cd9136 0%,
+  #e98356 100%
+) !important;
+$linear-design: linear-gradient(to right, #3936cd 0%, #4d0f6a 100%) !important;
+$linear-dev: linear-gradient(to right, #4b36cd 0%, #56b4e9 100%) !important;
+
+.content {
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.content-section {
+  padding: 0 20px;
+}
+
+.box {
+  height: 150px;
+  text-align: center;
+}
+
+.box-model {
+  height: 100px;
+  text-align: center;
+
+  .box-model-type {
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+
+    img {
+      max-width: 80px;
+      height: auto;
+    }
+  }
+
+  .box-model-type.business {
+    background-image: $linear-business;
+  }
+
+  .box-model-type.location {
+    background-image: $linear-location;
+  }
+
+  .box-model-type.design {
+    background-image: $linear-design;
+  }
+
+  .box-model-type.dev {
+    background-image: $linear-dev;
+  }
+}
+
+.create-contract {
+  display: flex;
+  justify-content: center;
+  height: 120px;
+  border-radius: 10px;
+  span {
+    color: $text-color;
+    font-size: 25px;
+    align-self: center;
+  }
+}
+
+.create-contract-btn {
+  float: right;
+  margin: -25px 0px 0 0;
+  padding: 0.2rem 2.5rem !important;
+}
+
+.assign-type {
+  height: 122px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.assign-type.company {
+  background-image: $linear-assign-company;
+}
+
+.assign-type.individual {
+  background-image: $linear-assign-individual;
+}
+
+.title {
+  color: $text-color;
+  font-family: "Gilroy-SemiBold", sans-serif;
+  font-size: 20px;
+}
+
+mat-icon {
+  margin-right: 10px;
+}
+
+mat-list-item {
+  img {
+    margin-left: 10px;
+  }
+}
