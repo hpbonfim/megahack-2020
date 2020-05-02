@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const contractSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
-    fileName: {
+    encryptedFile: {
         type: String,
         required: true,
     }
