@@ -6,6 +6,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+import { MatRippleModule } from '@angular/material/core';
 
 import { UserShellRoutingModule } from './user-shell-routing.module';
 import { UserShellComponent } from './user-shell.component';
@@ -13,9 +15,15 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { PageMenuComponent } from '../page-menu/page-menu.component';
 import { BottomMenuComponent } from './bottom-menu/bottom-menu.component';
 import { AuthGuardService } from 'src/app/shared/auth/auth.guard.service';
+import { PageModelsComponent } from '../page-models/page-models.component';
 
 @NgModule({
-  declarations: [UserShellComponent, PageMenuComponent, BottomMenuComponent],
+  declarations: [
+    UserShellComponent,
+    PageMenuComponent,
+    BottomMenuComponent,
+    PageModelsComponent,
+  ],
   imports: [
     UserShellRoutingModule,
     SharedModule,
@@ -26,6 +34,8 @@ import { AuthGuardService } from 'src/app/shared/auth/auth.guard.service';
     MatTabsModule,
     MatDividerModule,
     MatListModule,
+    MatCardModule,
+    MatRippleModule,
   ],
   providers: [AuthGuardService],
 })

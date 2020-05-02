@@ -8,6 +8,7 @@ body {
 }
 
 // tipografia
+$text-color: #f4900c;
 @font-face {
   font-family: "Gilroy";
   src: url(assets/fonts/Gilroy/Gilroy-Regular.ttf) format("opentype");
@@ -30,10 +31,21 @@ a {
   font-family: "Gilroy-SemiBold", sans-serif;
 }
 
+.title-h1 {
+  color: $text-color;
+  font-size: 25px;
+}
+
+.title-h2 {
+  color: $text-color;
+  font-size: 20px;
+}
+
 //botão
 button {
   border-radius: 15px 15px 15px 15px !important;
 }
+
 .btn-accent {
   background-image: linear-gradient(
     to right,
@@ -42,6 +54,7 @@ button {
   ) !important;
   padding: 0 30px !important;
   font-size: 18px !important;
+  color: #fff;
 }
 
 //form fields
@@ -67,6 +80,10 @@ $padding-2: 1rem;
 
 .pl-1 {
   padding-left: $padding-1;
+}
+
+.pl-2 {
+  padding-left: $padding-2;
 }
 
 .mt-2 {
