@@ -33,11 +33,16 @@ exports.user_register = (req, res, next) => {
 						})
 						user
 							.save()
-							.then(result => {
-								return res.status(201).send({
-									message: "usuário cadastrado com sucesso",
-									result
-								})
+							.then(data => {
+								let result = {
+									_id: data._id,
+									fullName: data.fullName,
+									stateCode: data.stateCode,
+									phoneNumber: data.phoneNumber,
+									verified: data.verified,
+									email: data.email
+								}
+								return res.status(201).send({ result })
 							})
 							.catch(err => {
 								return res.status(500).json({
@@ -63,7 +68,7 @@ exports.user_login = (req, res, next) => {
 		.exec()
 		.then(user => {
 			if (user.length < 1) {
-				return res.status(401).json({
+				return res.status(404).json({
 					message: "email não cadastrado!"
 				})
 			}
@@ -75,7 +80,7 @@ exports.user_login = (req, res, next) => {
 				}
 				if (result) {
 					const usuario = {
-						id: user[0]._id,
+						_id: user[0]._id,
 						userName: user[0].userName,
 						fullName: user[0].fullName,
 						countryCode: user[0].countryCode,

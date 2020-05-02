@@ -27,7 +27,8 @@ exports.user_sendVerification = (req, res, next) => {
 							})
                     })
                     .catch(err => {
-                        return res.status(500).json({
+                        return res.status(404).json({
+							message: "Número para contato é inválido!",
                             error: err
                         })
                     })
@@ -64,21 +65,30 @@ exports.user_verify = (req, res, next) => {
 						code: `${req.body.code}`
 					})
 					.then(verification => {
-						User.findOneAndUpdate({ _id: user[0]._id }, { verified: true }, { new: true, useFindAndModify: false })
-							.then(result => {
-								return res.status(200).send({
-                                    message: `+${user[0].countryCode + user[0].stateCode + user[0].phoneNumber}` + " confirmado!",
-									verification
+						if (verification.status === "approved"){
+							User.findOneAndUpdate({ _id: user[0]._id }, { verified: true }, { new: true, useFindAndModify: false })
+								.then(result => {
+									return res.status(200).send({
+										message: `+${user[0].countryCode + user[0].stateCode + user[0].phoneNumber}` + " confirmado!",
+										verification
+									})
 								})
-							})
-							.catch(err => {
-								return res.status(500).json({
-									error: err
+								.catch(err => {
+									return res.status(500).json({
+										message: "Erro ao salvar!",
+										error: err
+									})
 								})
+						} else {
+							return res.status(500).json({
+								message: "Erro ao salvar!",
+								error: err
 							})
+						}
 					})
 					.catch(err => {
-						return res.status(500).json({
+						return res.status(404).json({
+							message: "Código de verificação inválido!",
 							error: err
 						})
 					})
