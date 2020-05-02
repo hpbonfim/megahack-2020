@@ -1,0 +1,41 @@
+<div class="content head">
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+    <img src="../../../assets/images/contract.png" />
+    <span class="font-semibold title-h2 pl-2">
+      Contratos de Negócios, Vendas e Serviços.
+    </span>
+  </div>
+</div>
+
+<div class="content">
+  <mat-card
+    matRipple
+    *ngFor="let model of models; index as i"
+    class="mat-elevation-z1"
+    fxLayout="row"
+    fxLayoutAlign="start center"
+    [class.selected]="selectedModel === model.id"
+    (click)="selectedModel = model.id"
+  >
+    <div>
+      <img src="../../../assets/images/icon-contract.png" />
+    </div>
+    <div class="pl-2">
+      <strong>{{ model.title }}</strong
+      ><br />
+      <small>{{ model.description }}</small>
+    </div>
+  </mat-card>
+</div>
+
+<div class="content">
+  <button
+    mat-raised-button
+    class="w-100"
+    color="accent"
+    [disabled]="!selectedModel"
+    [class.btn-accent]="selectedModel"
+  >
+    PREENCHER
+  </button>
+</div>

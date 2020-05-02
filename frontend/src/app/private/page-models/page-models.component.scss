@@ -1,0 +1,19 @@
+.content {
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.content.head {
+  padding: 20px 70px;
+}
+
+mat-card {
+  background-color: #f8f8f8;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+mat-card.selected {
+  border: 2px solid #d24944 !important;
+}
