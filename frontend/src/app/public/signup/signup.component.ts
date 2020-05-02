@@ -8,8 +8,8 @@ import messageFormValidation from '../../shared/functions/form-message-validatio
 import { UserRegistersService } from './user-registers.service';
 import { Router } from '@angular/router';
 import { User } from '../../shared/models/user.model';
-import { UserDataService } from '../user-confirmation/user-data.service';
 import { UserConfirmationSmsService } from '../user-confirmation/user-confirmation-sms.service';
+import { UserDataService } from 'src/app/shared/services/user-data.service';
 
 @Component({
   selector: 'app-signup',

@@ -12,6 +12,7 @@ import { UserShellComponent } from './user-shell.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { PageMenuComponent } from '../page-menu/page-menu.component';
 import { BottomMenuComponent } from './bottom-menu/bottom-menu.component';
+import { AuthGuardService } from 'src/app/shared/auth/auth.guard.service';
 
 @NgModule({
   declarations: [UserShellComponent, PageMenuComponent, BottomMenuComponent],
@@ -26,5 +27,6 @@ import { BottomMenuComponent } from './bottom-menu/bottom-menu.component';
     MatDividerModule,
     MatListModule,
   ],
+  providers: [AuthGuardService],
 })
 export class UserShellModule {}

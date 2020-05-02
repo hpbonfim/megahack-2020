@@ -3,7 +3,6 @@ const express = require("express")
 const app = express()
 const bodyParser = require("body-parser")
 const morgan = require("morgan")
-const cors = require('cors')
 
 app.use(morgan("dev")) // http logs
 app.use(bodyParser.urlencoded({  extended: false })) // parse requests of content-type - application/x-www-form-urlencoded

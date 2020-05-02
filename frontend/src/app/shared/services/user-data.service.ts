@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { User } from '../../shared/models/user.model';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class UserDataService {
   setPhoneNumber = (phoneNumber) =>
     window.localStorage.setItem('phoneNumber', phoneNumber);

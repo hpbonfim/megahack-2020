@@ -6,7 +6,7 @@ import markForm from '../../shared/functions/mark-form.function';
 import messageFormValidation from '../../shared/functions/form-message-validation.function';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../../shared/models/user.model';
-import { UserDataService } from '../user-confirmation/user-data.service';
+import { UserDataService } from 'src/app/shared/services/user-data.service';
 
 @Component({
   selector: 'app-login',
@@ -60,14 +60,11 @@ export class LoginComponent implements OnInit {
   }
 
   private redirectUser(user: User) {
-    if (user.verified) {
-      this.router.navigate(['/user-shell']);
-      return;
-    }
-
     const formattedPhone = user.stateCode + user.phoneNumber;
+    const navigate = user.verified ? '/user-shell' : '/user-confirmation';
+
     this.userDataService.setPhoneNumber(formattedPhone);
     this.userDataService.setUserData(user);
-    this.router.navigate([`/user-confirmation`]);
+    this.router.navigate([navigate]);
   }
 }

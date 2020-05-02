@@ -7,10 +7,10 @@ import { NgxMaskModule } from 'ngx-mask';
 
 import { UserConfirmationRoutingModule } from './user-confirmation-routing.module';
 import { UserConfirmationComponent } from './user-confirmation.component';
-import { UserDataService } from './user-data.service';
 import { UserConfirmationSmsService } from './user-confirmation-sms.service';
 import { UserConfirmationCodeService } from './user-confirmation-code.service';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { UserDataService } from 'src/app/shared/services/user-data.service';
 
 @NgModule({
   declarations: [UserConfirmationComponent],

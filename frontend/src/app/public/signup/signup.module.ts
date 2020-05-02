@@ -12,9 +12,9 @@ import { NgxMaskModule } from 'ngx-mask';
 import { SignupRoutingModule } from './signup-routing.module';
 import { SignupComponent } from './signup.component';
 import { UserRegistersService } from './user-registers.service';
-import { UserDataService } from '../user-confirmation/user-data.service';
 import { UserConfirmationSmsService } from '../user-confirmation/user-confirmation-sms.service';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { UserDataService } from 'src/app/shared/services/user-data.service';
 
 @NgModule({
   declarations: [SignupComponent],

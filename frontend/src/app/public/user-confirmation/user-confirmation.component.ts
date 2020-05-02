@@ -5,12 +5,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2';
 
-import { UserDataService } from './user-data.service';
 import markForm from '../../shared/functions/mark-form.function';
 import messageFormValidation from '../../shared/functions/form-message-validation.function';
 import { UserConfirmationSmsService } from './user-confirmation-sms.service';
 import { User } from '../../shared/models/user.model';
 import { UserConfirmationCodeService } from './user-confirmation-code.service';
+import { UserDataService } from 'src/app/shared/services/user-data.service';
 
 @Component({
   selector: 'app-user-confirmation',
