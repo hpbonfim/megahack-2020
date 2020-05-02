@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-shell.component.scss'],
 })
 export class UserShellComponent implements OnInit {
+  selectedTabIndex = 0;
+
   constructor() {}
 
   ngOnInit(): void {}
+
+  changeTabIndex = (index) => (this.selectedTabIndex = index);
 }

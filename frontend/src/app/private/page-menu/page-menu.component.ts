@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-page-menu',
@@ -6,9 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page-menu.component.scss'],
 })
 export class PageMenuComponent implements OnInit {
+  @Output() changeTabIndex = new EventEmitter();
+
+  selectModelTabId = 1;
+
   constructor() {}
 
   ngOnInit(): void {}
 
-  goToContractModels = () => true;
+  goToContractModels = () => this.changeTabIndex.emit(this.selectModelTabId);
 }

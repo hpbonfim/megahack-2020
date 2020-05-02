@@ -25,9 +25,16 @@
     </div>
 
     <div fxFill class="align-center" fxLayout="row" fxLayoutAlign="start start">
-      <mat-tab-group fxFill mat-align-tabs="start" color="accent">
+      <mat-tab-group
+        fxFill
+        mat-align-tabs="start"
+        color="accent"
+        [(selectedIndex)]="selectedTabIndex"
+      >
         <mat-tab label="Menu">
-          <app-page-menu></app-page-menu>
+          <app-page-menu
+            (changeTabIndex)="changeTabIndex($event)"
+          ></app-page-menu>
         </mat-tab>
         <mat-tab label="Modelos">
           <app-page-models></app-page-models>

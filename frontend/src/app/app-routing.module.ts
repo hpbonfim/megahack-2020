@@ -38,6 +38,14 @@ const routes: Routes = [
       ),
     canActivate: [AuthGuard],
   },
+  {
+    path: 'user-contract',
+    loadChildren: () =>
+      import('./private/user-contract/user-contract.module').then(
+        (m) => m.UserContractModule
+      ),
+    canActivate: [AuthGuard],
+  },
   { path: '**', redirectTo: 'home' },
 ];
 
