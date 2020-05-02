@@ -1,3 +1,9 @@
+$linear-assign-individual: linear-gradient(
+  to right,
+  #cd3641 0%,
+  #e98356 100%
+) !important;
+
 .content {
   padding: 20px;
   flex-wrap: wrap;
@@ -16,4 +22,20 @@ mat-card {
 
 mat-card.selected {
   border: 2px solid #d24944 !important;
+}
+
+.selected-signal {
+  background: #fff;
+  border: 2px solid #d2d2d2;
+  color: #d2d2d2;
+  padding: 5px 20px;
+  border-radius: 5px;
+  max-width: 100px;
+  margin-top: 5px;
+}
+
+.selected-signal.selected {
+  background-image: $linear-assign-individual;
+  color: white;
+  border: none;
 }
