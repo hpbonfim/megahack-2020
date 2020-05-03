@@ -14,6 +14,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpErrorHandler } from './shared/http-handlers/http-error-handler.service';
 import { HttpSpinnerRequestInterceptor } from './shared/http-handlers/http-spinner-interceptor.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -29,6 +31,7 @@ import { HttpSpinnerRequestInterceptor } from './shared/http-handlers/http-spinn
     NgxSpinnerModule,
     NgxMaskModule.forRoot(),
     FontAwesomeModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     {
