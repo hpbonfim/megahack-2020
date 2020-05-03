@@ -1,1 +1,7 @@
-<div class="container"></div>
+<div class="card">
+  <app-contract-card
+    *ngIf="model"
+    [model]="model"
+    [selected]="true"
+  ></app-contract-card>
+</div>

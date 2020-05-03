@@ -24,7 +24,7 @@
     color="accent"
     [disabled]="!selectedModel"
     [class.btn-accent]="selectedModel"
-    [routerLink]="['/user-contract']"
+    (click)="goToContract(selectedModel)"
   >
     PREENCHER
   </button>

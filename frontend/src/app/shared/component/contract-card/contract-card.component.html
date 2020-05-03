@@ -14,9 +14,7 @@
     <br />
     <small>{{ model.description }}</small>
     <div class="selected-signal" [class.selected]="selected">
-      <small>{{
-        selectedModel === model.id ? "SELECIONADO" : "SELECIONAR"
-      }}</small>
+      <small>{{ selected ? "SELECIONADO" : "SELECIONAR" }}</small>
     </div>
   </div>
 </mat-card>
