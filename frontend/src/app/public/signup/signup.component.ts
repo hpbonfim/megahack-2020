@@ -37,7 +37,7 @@ export class SignupComponent implements OnInit {
       return;
     }
 
-    const { message, result } = await this.userRegistersService
+    const { result } = await this.userRegistersService
       .post(this.formatObject())
       .toPromise();
 
