@@ -8,32 +8,13 @@
 </div>
 
 <div class="content">
-  <mat-card
-    matRipple
-    *ngFor="let model of models; index as i"
-    class="mat-elevation-z1"
-    fxLayout="row"
-    fxLayoutAlign="start center"
-    [class.selected]="selectedModel === model.id"
-    (click)="selectedModel = model.id"
-  >
-    <div>
-      <img src="../../../assets/images/icon-contract.png" />
-    </div>
-    <div class="pl-2">
-      <strong>{{ model.title }}</strong>
-      <br />
-      <small>{{ model.description }}</small>
-      <div
-        class="selected-signal"
-        [class.selected]="selectedModel === model.id"
-      >
-        <small>{{
-          selectedModel === model.id ? "SELECIONADO" : "SELECIONAR"
-        }}</small>
-      </div>
-    </div>
-  </mat-card>
+  <div *ngFor="let model of models; index as i">
+    <app-contract-card
+      [model]="model"
+      [selected]="selectedModel === model.id"
+      (selectCard)="selectedModel = model.id"
+    ></app-contract-card>
+  </div>
 </div>
 
 <div class="content">
@@ -43,6 +24,7 @@
     color="accent"
     [disabled]="!selectedModel"
     [class.btn-accent]="selectedModel"
+    [routerLink]="['/user-contract']"
   >
     PREENCHER
   </button>

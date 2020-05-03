@@ -5,9 +5,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxMaskModule } from 'ngx-mask';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ContractCardComponent } from './component/contract-card/contract-card.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [ContractCardComponent],
   imports: [
     HttpClientModule,
     CommonModule,
@@ -24,6 +25,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ReactiveFormsModule,
     FlexLayoutModule,
     FontAwesomeModule,
+    ContractCardComponent,
   ],
 })
 export class SharedModule {}

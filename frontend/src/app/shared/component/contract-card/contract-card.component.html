@@ -1,0 +1,22 @@
+<mat-card
+  matRipple
+  class="mat-elevation-z1"
+  fxLayout="row"
+  fxLayoutAlign="start center"
+  [class.selected]="selected"
+  (click)="selectModel(model.id)"
+>
+  <div>
+    <img src="../../../assets/images/icon-contract.png" />
+  </div>
+  <div class="pl-2">
+    <strong>{{ model.title }}</strong>
+    <br />
+    <small>{{ model.description }}</small>
+    <div class="selected-signal" [class.selected]="selected">
+      <small>{{
+        selectedModel === model.id ? "SELECIONADO" : "SELECIONAR"
+      }}</small>
+    </div>
+  </div>
+</mat-card>
