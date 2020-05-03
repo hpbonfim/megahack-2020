@@ -1,5 +1,6 @@
 const User = require("../models/User")
 const client = require('twilio')(process.env.ACCOUNT_SID, process.env.AUTH_TOKEN)
+const SID = process.env.VERIFY_SERVICE_ID
 
 // SEND VERIFICATION
 exports.user_sendVerification = (req, res, next) => {
@@ -14,7 +15,7 @@ exports.user_sendVerification = (req, res, next) => {
 			if (user[0]._id) {
 				client
 					.verify
-					.services(process.env.SERVICE_ID)
+					.services(SID)
 					.verifications
 					.create({
 						to: `+${user[0].countryCode + user[0].stateCode + user[0].phoneNumber}`,
@@ -45,7 +46,7 @@ exports.user_sendVerification = (req, res, next) => {
 		})
 }
 
-// VERIFY CODE
+// VERIFY RECEIVED CODE
 exports.user_verify = (req, res, next) => {
 	User.find({
 			_id: req.body._id
@@ -58,7 +59,7 @@ exports.user_verify = (req, res, next) => {
 			if (user[0]._id) {
 				client
 					.verify
-					.services(process.env.SERVICE_ID)
+					.services(SID)
 					.verificationChecks
 					.create({
 						to: `+${user[0].countryCode + user[0].stateCode + user[0].phoneNumber}`,
@@ -99,7 +100,6 @@ exports.user_verify = (req, res, next) => {
 			}
 		})
 		.catch(err => {
-			console.log(err)
 			return res.status(500).json({
 				error: err
 			})

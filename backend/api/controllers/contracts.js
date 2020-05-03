@@ -4,7 +4,8 @@ const crypto = require('crypto')
 const algorithm = process.env.ALGORITHM
 const encoding_1 = process.env.ENCOD_METHOD_PRIMARY
 const encoding_2 = process.env.ENCOD_METHOD_SECUNDARY
-
+const client = require('twilio')(process.env.ACCOUNT_SID, process.env.AUTH_TOKEN)
+const Mideal = process.env.PHONE
 
 // ENCRYPT CONTRACT
 exports.contract_encrypt = (req, res, next) => {
@@ -21,17 +22,30 @@ exports.contract_encrypt = (req, res, next) => {
     contract
         .save()
         .then(result => {
-            let document = {
-                _id: result._id,
-                password: password
-            }
-            return res.status(200).send({
-                message: "contrado armazenado com sucesso",
-                document
-            })
+            client
+                .messages
+                .create({
+                    body: "Olá, " + `${req.body.fullName}` + ".\nO Número do seu contrato criado no Mideal é: \n" + `${contract._id}` + "\n A senha para acesso do contrato é: \n" + `${password}` + "\nArmazene a senha em local seguro, por ser única e intrasferível, não será possível recupera-lá para acesso posterior!",
+                    from: Mideal,
+                    to: '+' + `${req.body.phoneNumber}`
+                })
+                .then(resp => {
+                    return res.status(200).send({
+                        message: "contrado armazenado com sucesso",
+                        _id: result._id,
+                        password: password
+                    })
+                })
+                .catch(err => {
+                    return res.status(404).json({
+                        message: "Número para contato é inválido!",
+                        error: err
+                    })
+                })
         })
         .catch(err => {
             return res.status(500).json({
+                message: "Erro ao armazenar o contrato!",
                 error: err
             })
         })

@@ -42,7 +42,9 @@ exports.user_register = (req, res, next) => {
 									verified: data.verified,
 									email: data.email
 								}
-								return res.status(201).send({ result })
+								return res.status(201).send({
+									result
+								})
 							})
 							.catch(err => {
 								return res.status(500).json({
@@ -60,7 +62,7 @@ exports.user_register = (req, res, next) => {
 		})
 }
 
-//LOGIN USER
+// LOGIN USER
 exports.user_login = (req, res, next) => {
 	User.find({
 			email: req.body.email
@@ -89,7 +91,6 @@ exports.user_login = (req, res, next) => {
 						verified: user[0].verified,
 						email: user[0].email
 					}
-					console.log("ID: ", user[0]._id, "TELEFONE:", user[0].countryCode + user[0].stateCode + user[0].phoneNumber)
 					return res.status(200).send(usuario)
 				}
 				return res.status(401).json({
