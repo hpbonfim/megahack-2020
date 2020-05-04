@@ -1,10 +1,7 @@
-<div align="center">
+
 <p align="center">
   <img src="https://github.com/hpbonfim/megahack-2020/blob/master/mideal-logo-black.png"/>
 </p>
-<h1 align="center">
-MiDeal - Projeto para o Mega Hack 2020
-</h1>
 <p align="center">
   <a href="https://github.com/hpbonfim/megahack-2020#readme">
     <img src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000"/>
@@ -30,10 +27,11 @@ MiDeal - Projeto para o Mega Hack 2020
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" target="https://github.com/hpbonfim/megahack-2020#readme" />
   </a>
 </p>
-</div>
 
 
-Plataforma criada para **assegurar os deveres e obrigações de ambas as partes de um acordo firmado em contrato digital**, tudo isso dentro de um **ambiente seguro e criptografado** garantido pela tecnologia de **blockchains aplicada aos smart contracts**.
+Projeto desenvolvido especialmente para o evento [MegaHack 2020](https://www.megahack.com.br/).
+
+Plataforma [Mideal](http://ec2-54-207-61-98.sa-east-1.compute.amazonaws.com/) visa **assegurar os deveres e obrigações de ambas as partes de um acordo firmado em contrato digital**, tudo isso dentro de um **ambiente seguro e criptografado** garantido pela tecnologia de **blockchains aplicada aos smart contracts**.
 Isso traz diversos benefícios aos usuários:
   - ***Segurança para Acordos e Negociações***
   - ***Confiabilidade e Garantias***
@@ -45,7 +43,7 @@ Isso traz diversos benefícios aos usuários:
 |NOME            |LINKEDIN                       |WORK                         |
 |----------------|-------------------------------|-----------------------------|
 |Henrique Bonfim |[Henrique Bonfim](https://www.linkedin.com/in/hpbonfim)| Desenvolvedor Back-end      |
-|Larissa Pissurno|[Larissa Pissumo](https://www.linkedin.com/in/larissa-de-oliveira-pissurno-64783372/)          | Desenvolvedora Front-end     |
+|Larissa Pissurno|[Larissa Pissurno](https://www.linkedin.com/in/larissa-de-oliveira-pissurno-64783372/)          | Desenvolvedora Front-end     |
 |Gabriel Ferre   |[Gabriel Ferre](https://www.linkedin.com/in/gabriel-ferre-963a9617b/)| Marketing                   |
 |Marcus Vinícius |[Marcus Vinícius](https://www.linkedin.com/in/marcus-zanato-4494a1195/)| Gestor / Negócios           |
 |Jonathan Batista|[Jonathan Batista](https://www.linkedin.com/in/jonathan-batista-ferreira-1b951b150/)| Designer UX/UI              |
@@ -124,7 +122,6 @@ $ docker run -d -p 3000:3000 --restart="always" megahack/backend:latest
 License
 ----
 
-**Open Source, be my guest!!**
-
+**Open Source, be my guest!!** 
 
 
