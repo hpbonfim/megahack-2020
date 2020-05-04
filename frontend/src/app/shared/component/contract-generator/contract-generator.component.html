@@ -9,6 +9,7 @@
 </mat-accordion>
 
 <button
+  *ngIf="showSubmitButton"
   mat-raised-button
   color="accent"
   class="btn-accent w-100"
@@ -17,6 +18,11 @@
   Enviar contrato
 </button>
 
-<!-- <button mat-raised-button class="w-100 btn-back" (click)="goBack.emit()">
+<button
+  *ngIf="showCloseButton"
+  mat-raised-button
+  class="w-100 btn-back"
+  (click)="goBack.emit()"
+>
   Voltar
-</button> -->
+</button>

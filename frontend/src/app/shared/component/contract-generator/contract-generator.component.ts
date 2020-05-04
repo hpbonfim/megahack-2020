@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 import { Contract } from '../../models/contract.model';
 import { ContractService } from '../../services/contract.service';
@@ -9,14 +9,15 @@ import { ContractService } from '../../services/contract.service';
   styleUrls: ['./contract-generator.component.scss'],
 })
 export class ContractGeneratorComponent implements OnInit {
-  contract: Contract;
-
+  @Input() contract: Contract;
+  @Input() showSubmitButton = true;
+  @Input() showCloseButton = false;
   @Output() handleSubmit = new EventEmitter();
   @Output() goBack = new EventEmitter();
 
   constructor(private contractService: ContractService) {}
 
   ngOnInit(): void {
-    this.contract = this.contractService.getContract();
+    this.contract = this.contract || this.contractService.getContract();
   }
 }

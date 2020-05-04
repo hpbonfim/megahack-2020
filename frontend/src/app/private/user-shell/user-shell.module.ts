@@ -17,6 +17,8 @@ import { BottomMenuComponent } from './bottom-menu/bottom-menu.component';
 import { AuthGuardService } from 'src/app/shared/auth/auth.guard.service';
 import { PageModelsComponent } from '../page-models/page-models.component';
 import { PageMyContractsComponent } from '../page-my-contracts/page-my-contracts.component';
+import { PageConfirmContractPreviewComponent } from '../page-confirm-contract-preview/page-confirm-contract-preview.component';
+import { UserConfirmationSmsService } from 'src/app/public/user-confirmation/user-confirmation-sms.service';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { PageMyContractsComponent } from '../page-my-contracts/page-my-contracts
     PageMenuComponent,
     BottomMenuComponent,
     PageModelsComponent,
+    PageConfirmContractPreviewComponent,
     PageMyContractsComponent,
   ],
   imports: [
@@ -39,6 +42,6 @@ import { PageMyContractsComponent } from '../page-my-contracts/page-my-contracts
     MatCardModule,
     MatRippleModule,
   ],
-  providers: [AuthGuardService],
+  providers: [AuthGuardService, UserConfirmationSmsService],
 })
 export class UserShellModule {}

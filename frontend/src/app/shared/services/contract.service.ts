@@ -34,7 +34,8 @@ export class ContractService {
   };
 
   getUserContracts = (userId: string) => {
-    const allContracts = JSON.parse(window.localStorage.getItem('contracts'));
+    const allContracts =
+      JSON.parse(window.localStorage.getItem('contracts')) || [];
     return allContracts.filter((contract) => contract.userId === userId) || [];
   };
 }

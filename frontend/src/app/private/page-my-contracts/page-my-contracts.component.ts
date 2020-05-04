@@ -9,7 +9,13 @@ import { Contract } from 'src/app/shared/models/contract.model';
 export class PageMyContractsComponent implements OnInit {
   @Input() userContracts: any[] = [];
 
+  selectedContractId: number;
+
   constructor() {}
 
   ngOnInit(): void {}
+
+  selectContract(id: number) {
+    this.selectedContractId = id;
+  }
 }

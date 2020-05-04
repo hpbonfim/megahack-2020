@@ -1,0 +1,56 @@
+<div class="content" *ngIf="!showContract">
+  <div
+    fxFlex="100"
+    class="align-center"
+    fxLayout="column"
+    fxLayoutAlign="start center"
+  >
+    <div fxLayout="column" fxLayoutAlign="center center" class="box">
+      <img alt="Logo" src="../../assets/images/mideal-logo-black.png" />
+
+      <form [formGroup]="form" class="w-100">
+        <div fxLayout="column">
+          <p>
+            <span class="color accent">Olá!</span> Informe o código de segurança
+            para acessar o contrato.
+          </p>
+
+          <mat-form-field appearance="outline" color="primary">
+            <mat-label>Código de confirmação</mat-label>
+
+            <input
+              formControlName="password"
+              type="text"
+              ngDefaultControl
+              matInput
+            />
+
+            <mat-error>{{ getErrorMessage("password") }}</mat-error>
+          </mat-form-field>
+        </div>
+      </form>
+
+      <button
+        mat-raised-button
+        color="accent"
+        class="btn-accent"
+        (click)="handleSubmit()"
+      >
+        Continuar
+      </button>
+      <br />
+      <button mat-raised-button (click)="handleClose.emit()">
+        Sair
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="content" *ngIf="showContract">
+  <app-contract-generator
+    [showCloseButton]="true"
+    [showSubmitButton]="false"
+    [contract]="contract"
+    (goBack)="closeContract()"
+  ></app-contract-generator>
+</div>

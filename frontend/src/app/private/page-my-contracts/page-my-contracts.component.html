@@ -1,7 +1,15 @@
-<div class="content">
+<div class="content" *ngIf="!selectedContractId">
   <app-contract-card
     *ngFor="let contract of userContracts"
     [contract]="contract"
     [userContract]="true"
+    (selectCard)="selectContract($event)"
   ></app-contract-card>
+</div>
+
+<div class="content" *ngIf="selectedContractId">
+  <app-page-confirm-contract-preview
+    [contractId]="selectedContractId"
+    (handleClose)="selectedContractId = null"
+  ></app-page-confirm-contract-preview>
 </div>
