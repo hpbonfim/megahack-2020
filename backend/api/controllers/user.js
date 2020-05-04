@@ -1,6 +1,9 @@
 const mongoose = require("mongoose")
 const User = require("../models/User")
 const bcrypt = require('bcrypt')
+const client = require('twilio')(process.env.ACCOUNT_SID, process.env.AUTH_TOKEN)
+const SID = process.env.NOTIFY_SERVICE_ID
+const Mideal = process.env.PHONE
 
 // REGISTER USER
 exports.user_register = (req, res, next) => {
@@ -91,7 +94,21 @@ exports.user_login = (req, res, next) => {
 						verified: user[0].verified,
 						email: user[0].email
 					}
-					return res.status(200).send(usuario)
+					const notification = {
+						toBinding: JSON.stringify({
+							binding_type: 'sms',
+							address: '+' + `${user[0].countryCode + user[0].stateCode + user[0].phoneNumber}`
+						}),
+						body: 'Olá, ' + `${user[0].fullName}` + '!\nSua conta no Mideal está sendo acessada! certifique-se que você seja essa pessoa autorizada!\nEquipe de segurança - Mideal.'
+					}
+					return client.notify
+						.services(SID)
+						.notifications
+						.create(notification)
+						.then(success => {
+							res.status(200).send(usuario)
+						})
+						.catch(error => res.status(401).json(error))
 				}
 				return res.status(401).json({
 					message: "Não permitido"
