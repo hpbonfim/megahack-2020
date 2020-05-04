@@ -1,10 +1,10 @@
 <div align="center">
+<p align="center">
+  <img src="https://github.com/hpbonfim/megahack-2020/blob/master/mideal-logo-black.png"/>
+</p>
 <h1 align="center">
-MiDeal
+MiDeal - Projeto para o Mega Hack 2020
 </h1>
-<h2 align="center">
-Projeto para o Mega Hack 2020
-</h2>
 <p align="center">
   <a href="https://github.com/hpbonfim/megahack-2020#readme">
     <img src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000"/>
@@ -64,7 +64,6 @@ Isso traz diversos benefícios aos usuários:
 * **[Docker](https://www.docker.com/)** - Plataforma de código aberto para criação de ambientes isolados via container.
 * **[Express](https://expressjs.com/)** - Framework utilizado para criar APIs.
 * **[MongooseJS](https://mongoosejs.com/)** - Elegante script para criar conexões com [MongoDB](https://www.mongodb.com/) .
-* **[MongoDB](https://www.mongodb.com/)** - Software de banco de dados orientado a documentos, de código aberto e multiplataforma.
 * **[MongoDB](https://www.mongodb.com/)** - Software de banco de dados orientado a documentos, de código aberto e multiplataforma.
   ##### API's do TWILIO:  
 * **[Phone Numbers ](https://www.twilio.com/docs/phone-numbers)**(*API para disponibilizar números de telefone para comunicação em massa, utilizado junto com o Programmable SMS*);
