@@ -42,7 +42,7 @@ Isso traz diversos benefícios aos usuários:
 
 ### EQUIPE
 
-|TIME            |LINKEDIN                       |WORK                         |
+|NOME            |LINKEDIN                       |WORK                         |
 |----------------|-------------------------------|-----------------------------|
 |Henrique Bonfim |[Henrique Bonfim](https://www.linkedin.com/in/hpbonfim)| Desenvolvedor Back-end      |
 |Larissa Pissurno|[Larissa Pissumo](https://www.linkedin.com/in/larissa-de-oliveira-pissurno-64783372/)          | Desenvolvedora Front-end     |
@@ -74,7 +74,7 @@ Isso traz diversos benefícios aos usuários:
 
 ## Instalação
 
-#### Front-end requer [Node.js](https://nodejs.org/) v12+ para ser executado.
+#### Front-end requer [Node.js](https://nodejs.org/) v10+ para ser executado.
 
 Instale as dependências and devDependencies antes de iniciar.
 
@@ -96,7 +96,7 @@ $ node start
 ##### Navegue pelo aplicativo:
     Endereço: http://localhost:4200/
 
-## Produção: 
+## Produção
 
 
 #### Front-end requer **[Docker](https://www.docker.com/)** e uma conta no [Docker Hub](https://hub.docker.com/) para colocar em produção.
