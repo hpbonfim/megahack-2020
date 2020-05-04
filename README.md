@@ -46,9 +46,9 @@ Isso traz diversos benefícios aos usuários:
 |----------------|-------------------------------|-----------------------------|
 |Henrique Bonfim |[Henrique Bonfim](https://www.linkedin.com/in/hpbonfim)| Desenvolvedor Back-end      |
 |Larissa Pissurno|[Larissa Pissumo](https://www.linkedin.com/in/larissa-de-oliveira-pissurno-64783372/)          | Desenvolvedora Front-end     |
-|Gabriel Ferre   |[Gabriel Ferre](https://www.linkedin.com/in/)| Marketing                   |
-|Marcus Vinícius |[Marcus Vinícius](https://www.linkedin.com/in/)| Gestor / Negócios           |
-|Jonathan Batista|[Jonathan Batista](https://www.linkedin.com/in/)| Designer UX/UI              |
+|Gabriel Ferre   |[Gabriel Ferre](https://www.linkedin.com/in/gabriel-ferre-963a9617b/)| Marketing                   |
+|Marcus Vinícius |[Marcus Vinícius](https://www.linkedin.com/in/marcus-zanato-4494a1195/)| Gestor / Negócios           |
+|Jonathan Batista|[Jonathan Batista](https://www.linkedin.com/in/jonathan-batista-ferreira-1b951b150/)| Designer UX/UI              |
 
 # Ferramentas Utilizadas
 
@@ -93,6 +93,8 @@ $ cd backend
 $ npm install
 $ node start
 ```
+##### Navegue pelo aplicativo:
+    Endereço: http://localhost:4200/
 
 ## Produção: 
 
@@ -122,7 +124,9 @@ $ docker build . -t megahack/backend:latest
 $ docker push megahack/backend:latest
 $ docker run -d -p 3000:3000 --restart="always" megahack/backend:latest
 ```
-    Endereço: 127.0.0.1 || localhost
+
+##### Navegue pelo aplicativo:
+    Endereço: http://127.0.0.1/
 
 License
 ----
