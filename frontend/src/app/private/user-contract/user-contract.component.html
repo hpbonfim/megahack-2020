@@ -11,5 +11,9 @@
     (setContractIsFilled)="filledContract = true"
     *ngIf="!filledContract"
   ></app-contract-infos>
-  <app-contract-generator *ngIf="filledContract"></app-contract-generator>
+  <app-contract-generator
+    *ngIf="filledContract"
+    (handleSubmit)="encryptContract()"
+    (goBack)="filledContract = false"
+  ></app-contract-generator>
 </div>

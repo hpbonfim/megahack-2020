@@ -8,10 +8,15 @@
   </mat-expansion-panel>
 </mat-accordion>
 
-<button #buttonAdd class="bg success" mat-raised-button>
-  <mat-icon>add</mat-icon>
+<button
+  mat-raised-button
+  color="accent"
+  class="btn-accent w-100"
+  (click)="handleSubmit.emit()"
+>
+  Enviar contrato
 </button>
 
-<div id="elementoTeste1"></div>
-
-<div id="elementoTeste2"></div>
+<!-- <button mat-raised-button class="w-100 btn-back" (click)="goBack.emit()">
+  Voltar
+</button> -->

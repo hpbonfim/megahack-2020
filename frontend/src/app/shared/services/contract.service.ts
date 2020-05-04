@@ -6,6 +6,7 @@ import { KeyValue } from '@angular/common';
 @Injectable()
 export class ContractService {
   contract: Contract;
+  contracts: Contract[];
 
   getContract = (): Contract => this.contract || (serviceContract as Contract);
 
@@ -24,5 +25,15 @@ export class ContractService {
         info.value
       );
     });
+  };
+
+  createContract = (contract: Contract) => {
+    this.contracts.push(contract);
+    window.localStorage.setItem('contracts', JSON.stringify(this.contracts));
+  };
+
+  getUserContracts = (userId: string) => {
+    const allContracts = JSON.parse(window.localStorage.getItem('contracts'));
+    return allContracts.find((contract) => contract.userId === userId) || [];
   };
 }

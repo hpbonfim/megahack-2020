@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
 import { Contract } from '../../models/contract.model';
 import { ContractService } from '../../services/contract.service';
 
@@ -10,7 +11,8 @@ import { ContractService } from '../../services/contract.service';
 export class ContractGeneratorComponent implements OnInit {
   contract: Contract;
 
-  @ViewChild('buttonAdd') buttonAdd;
+  @Output() handleSubmit = new EventEmitter();
+  @Output() goBack = new EventEmitter();
 
   constructor(private contractService: ContractService) {}
 
