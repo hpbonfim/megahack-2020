@@ -4,16 +4,20 @@
   fxLayout="row"
   fxLayoutAlign="start center"
   [class.selected]="selected"
-  (click)="selectModel(model.id)"
+  (click)="selectModel(contract.id)"
 >
   <div>
     <img src="../../../assets/images/icon-contract.png" />
   </div>
   <div class="pl-2">
-    <strong>{{ model.title }}</strong>
+    <strong [innerHtml]="contract.title"></strong>
     <br />
-    <small>{{ model.description }}</small>
-    <div class="selected-signal" [class.selected]="selected">
+    <small [innerHtml]="contract.description"></small>
+    <div
+      *ngIf="!userContract"
+      class="selected-signal"
+      [class.selected]="selected"
+    >
       <small>{{ selected ? "SELECIONADO" : "SELECIONAR" }}</small>
     </div>
   </div>

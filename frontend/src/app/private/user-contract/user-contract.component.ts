@@ -8,6 +8,7 @@ import serviceContract from 'src/app/shared/component/contract-models/service-co
 import { ContractEncryptService } from './contract-encrypt.service';
 import { ContractService } from 'src/app/shared/services/contract.service';
 import { UserDataService } from 'src/app/shared/services/user-data.service';
+import { Contract } from 'src/app/shared/models/contract.model';
 
 @Component({
   selector: 'app-user-contract',
@@ -17,14 +18,15 @@ import { UserDataService } from 'src/app/shared/services/user-data.service';
 export class UserContractComponent implements OnInit {
   model: { title: string; description: string };
   models = models;
-  contract = serviceContract;
+  contract = { ...serviceContract };
   filledContract: boolean;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private contractService: ContractService,
     private contractEncryptService: ContractEncryptService,
-    private userDataService: UserDataService
+    private userDataService: UserDataService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -47,26 +49,40 @@ export class UserContractComponent implements OnInit {
       phoneNumber: `${countryCode}${stateCode}${phoneNumber}`,
     };
 
-    this.contractEncryptService.post(body).subscribe(() => {
-      const contract = Object.assign({}, payload);
-      contract.userId = _id;
-      delete contract.blocks;
-      this.contractService.createContract(contract);
+    this.contractEncryptService.post(body).subscribe((result) => {
+      this.saveContract(payload, result._id, _id);
       const mensagem =
         'Contrato enviado com sucesso! Foi enviado uma mensagem ' +
         'de texto a todas as partes envolvida com a senha de acesso para acompanhamento';
-      Swal.fire('Sucesso', mensagem, 'success').then(
-        () => this.goToMyContracts
-      );
+      Swal.fire('Sucesso', mensagem, 'success').then(() => {
+        this.goToMyContracts();
+      });
     });
   };
+
+  private saveContract(payload: Contract, contractId: any, userId: string) {
+    const contract = Object.assign({}, payload);
+    contract.title = this.getOnlyText(contract.title);
+    contract.description = this.getOnlyText(contract.description);
+    contract.id = contractId;
+    contract.userId = userId;
+    delete contract.blocks;
+    this.contractService.createContract(contract);
+  }
 
   private fillModel(modelId) {
     this.model = models.find((mod) => mod.id === +modelId);
   }
 
   private goToMyContracts() {
-    // this.router.navigate(['my-contracts']);
-    console.log('vai pra pag de meus contratos');
+    this.router.navigate(['user-shell'], {
+      queryParams: { goTo: 'myContracts' },
+    });
+  }
+
+  private getOnlyText(text: string) {
+    const initialIndex = text.indexOf('<strong>');
+    const finalIndex = text.indexOf('</strong>');
+    return text.substring(initialIndex, finalIndex);
   }
 }

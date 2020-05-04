@@ -16,6 +16,7 @@ import { PageMenuComponent } from '../page-menu/page-menu.component';
 import { BottomMenuComponent } from './bottom-menu/bottom-menu.component';
 import { AuthGuardService } from 'src/app/shared/auth/auth.guard.service';
 import { PageModelsComponent } from '../page-models/page-models.component';
+import { PageMyContractsComponent } from '../page-my-contracts/page-my-contracts.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { PageModelsComponent } from '../page-models/page-models.component';
     PageMenuComponent,
     BottomMenuComponent,
     PageModelsComponent,
+    PageMyContractsComponent,
   ],
   imports: [
     UserShellRoutingModule,

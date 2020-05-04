@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Contract } from 'src/app/shared/models/contract.model';
+import { ContractService } from 'src/app/shared/services/contract.service';
+import { UserDataService } from 'src/app/shared/services/user-data.service';
 
 @Component({
   selector: 'app-user-shell',
@@ -14,19 +17,31 @@ export class UserShellComponent implements OnInit {
     myContracts: 3,
   };
   selectedTabIndex = 0;
+  userContracts: Contract[];
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private contractService: ContractService,
+    private userDataService: UserDataService
+  ) {}
 
   ngOnInit(): void {
     const { queryParams } = this.activatedRoute.snapshot;
+    this.loadUserContracts();
     if (queryParams.goTo) {
       this.goToTab(queryParams.goTo);
     }
   }
 
-  changeTabIndex = (index) => (this.selectedTabIndex = index);
+  changeTabIndex = (tabName) => (this.selectedTabIndex = this.tabMap[tabName]);
+
+  loadUserContracts = () => {
+    const { _id } = this.userDataService.getUserData();
+    this.userContracts = this.contractService.getUserContracts(_id);
+  };
 
   private goToTab = (tabName) => {
+    this.loadUserContracts();
     this.selectedTabIndex = this.tabMap[tabName];
   };
 }

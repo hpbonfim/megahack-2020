@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Contract } from '../../models/contract.model';
 
 @Component({
   selector: 'app-contract-card',
@@ -6,8 +7,9 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
   styleUrls: ['./contract-card.component.scss'],
 })
 export class ContractCardComponent implements OnInit {
-  @Input() model: any;
+  @Input() contract: any;
   @Input() selected: boolean;
+  @Input() userContract = false;
   @Output() selectCard = new EventEmitter();
 
   selectedModel: number;

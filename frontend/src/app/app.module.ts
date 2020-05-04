@@ -31,7 +31,9 @@ import { environment } from '../environments/environment';
     NgxSpinnerModule,
     NgxMaskModule.forRoot(),
     FontAwesomeModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+    }),
   ],
   providers: [
     {

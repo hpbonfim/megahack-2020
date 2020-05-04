@@ -3,6 +3,7 @@ import { Contract } from '../../models/contract.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import markForm from '../../functions/mark-form.function';
 import { ContractService } from '../../services/contract.service';
+import serviceContract from '../contract-models/service-contract';
 
 @Component({
   selector: 'app-contract-infos',
@@ -15,6 +16,7 @@ export class ContractInfosComponent implements OnInit {
 
   form: FormGroup;
   blocks: any[];
+  serviceContract = { ...serviceContract };
 
   constructor(private contractService: ContractService) {}
 
@@ -41,9 +43,9 @@ export class ContractInfosComponent implements OnInit {
     this.setContractIsFilled.emit();
   };
 
-  private createForm() {
+  private async createForm() {
     this.form = new FormGroup({});
-    this.blocks = this.getContractInputs();
+    this.blocks = await this.getContractInputs();
     this.blocks.forEach((input) => {
       input.controls.forEach((control) => {
         this.form.addControl(
@@ -56,6 +58,7 @@ export class ContractInfosComponent implements OnInit {
 
   private getContractInputs() {
     const inputArray = [];
+
     this.contract.blocks.forEach((block) => {
       const inputs = block.description.match(/\{([^}]+)\}/g);
       if (inputs) {

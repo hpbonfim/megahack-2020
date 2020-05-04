@@ -8,7 +8,7 @@ export class ContractService {
   contract: Contract;
   contracts: Contract[];
 
-  getContract = (): Contract => this.contract || (serviceContract as Contract);
+  getContract = (): any => this.contract || { ...serviceContract };
 
   fillBlock = (blockTitle: string, infos: KeyValue<string, string>[]) => {
     const contract = this.getContract();
@@ -28,12 +28,13 @@ export class ContractService {
   };
 
   createContract = (contract: Contract) => {
+    this.contracts = JSON.parse(window.localStorage.getItem('contracts')) || [];
     this.contracts.push(contract);
     window.localStorage.setItem('contracts', JSON.stringify(this.contracts));
   };
 
   getUserContracts = (userId: string) => {
     const allContracts = JSON.parse(window.localStorage.getItem('contracts'));
-    return allContracts.find((contract) => contract.userId === userId) || [];
+    return allContracts.filter((contract) => contract.userId === userId) || [];
   };
 }

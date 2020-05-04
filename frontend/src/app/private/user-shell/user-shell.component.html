@@ -30,16 +30,24 @@
         mat-align-tabs="center"
         color="accent"
         [(selectedIndex)]="selectedTabIndex"
+        (updateActiveLink)="loadUserContracts()"
       >
         <mat-tab label="Menu">
           <app-page-menu
             (changeTabIndex)="changeTabIndex($event)"
           ></app-page-menu>
         </mat-tab>
+        <mat-tab label="Planos">
+          Planos disponíveis:
+        </mat-tab>
         <mat-tab label="Modelos">
           <app-page-models></app-page-models>
         </mat-tab>
-        <mat-tab label="Meus Contratos">meus contrato mano</mat-tab>
+        <mat-tab label="Meus Contratos">
+          <app-page-my-contracts
+            [userContracts]="userContracts"
+          ></app-page-my-contracts>
+        </mat-tab>
       </mat-tab-group>
     </div>
   </div>

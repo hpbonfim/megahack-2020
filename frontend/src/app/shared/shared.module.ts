@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatRippleModule } from '@angular/material/core';
 
 import { NgxMaskModule } from 'ngx-mask';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -36,6 +37,7 @@ import { ContractService } from './services/contract.service';
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
+    MatRippleModule,
   ],
   exports: [
     HttpClientModule,

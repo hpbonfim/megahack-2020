@@ -10,7 +10,7 @@
 <div class="content">
   <div *ngFor="let model of models; index as i">
     <app-contract-card
-      [model]="model"
+      [contract]="model"
       [selected]="selectedModel === model.id"
       (selectCard)="selectedModel = model.id"
     ></app-contract-card>

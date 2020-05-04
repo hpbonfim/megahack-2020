@@ -8,11 +8,11 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class PageMenuComponent implements OnInit {
   @Output() changeTabIndex = new EventEmitter();
 
-  selectModelTabId = 1;
+  selectModelTabName = 'models';
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  goToContractModels = () => this.changeTabIndex.emit(this.selectModelTabId);
+  goToContractModels = () => this.changeTabIndex.emit(this.selectModelTabName);
 }
