@@ -1,9 +1,9 @@
-@import './pallete-orange.scss';
+@import "./pallete-orange.scss";
 
 $primary: mat-palette($pallete-orange-primary);
-$accent:  mat-palette($pallete-orange-accent);
+$accent: mat-palette($pallete-orange-accent);
 
-$candy-app-warn:    mat-palette($mat-red);
+$candy-app-warn: mat-palette($mat-red);
 
 $theme: mat-light-theme($primary, $accent, $candy-app-warn);
 
@@ -23,4 +23,8 @@ $theme: mat-light-theme($primary, $accent, $candy-app-warn);
 
 .bg.accent {
   background-color: mat-color($accent);
+}
+
+.bg.success {
+  background-color: #4caf50 !important;
 }
