@@ -105,11 +105,7 @@ $ node start
 > **[Repositório Mideal Front-End no DockerHub](https://hub.docker.com/r/megahack/frontend)**
 
 ```sh
-$ cd frontend
-$ npm install
-$ npm install @angular/cli
-$ docker build . -t megahack/frontend:latest 
-$ docker push megahack/frontend:latest
+$ docker pull megahack/frontend:latest
 $ docker run -d -p 80:80 --restart="always" megahack/frontend:latest
 ```
 #### Back-end requer **[Docker](https://www.docker.com/)** e uma conta no [Docker Hub](https://hub.docker.com/) para colocar em produção.
@@ -118,10 +114,7 @@ $ docker run -d -p 80:80 --restart="always" megahack/frontend:latest
 > **[Repositório Mideal Back-End no DockerHub](https://hub.docker.com/r/megahack/backend)**
 
 ```sh
-$ cd backend
-$ npm install
-$ docker build . -t megahack/backend:latest 
-$ docker push megahack/backend:latest
+$ docker pull megahack/backend:latest
 $ docker run -d -p 3000:3000 --restart="always" megahack/backend:latest
 ```
 
