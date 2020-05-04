@@ -46,7 +46,7 @@ export class UserContractComponent implements OnInit {
     const body = {
       fullName,
       payload: JSON.stringify(payload),
-      phoneNumber: `${countryCode}${stateCode}${phoneNumber}`,
+      phoneNumber: `${countryCode || '55'}${stateCode}${phoneNumber}`,
     };
 
     this.contractEncryptService.post(body).subscribe((result) => {

@@ -43,7 +43,9 @@ export class SignupComponent implements OnInit {
 
     if (result) {
       Swal.fire('Sucesso', 'Cadastro realizado!', 'success').then(() => {
-        this.sendSmsAndRedirect(result);
+        const { countryCode } = this.form.value;
+        const userData = {...result, countryCode};
+        this.sendSmsAndRedirect(userData);
       });
     }
   };
