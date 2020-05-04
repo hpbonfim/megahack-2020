@@ -10,7 +10,7 @@ const morgan = require("morgan")
 app.use(morgan("dev")) // http logs
 
 const bodyParser = require("body-parser")
-app.use(bodyParser.urlencoded({ extended: false })) // parse requests of content-type - application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true })) // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.json()) // parse requests of content-type - application/json
 
 // MONGODB CONFIG
