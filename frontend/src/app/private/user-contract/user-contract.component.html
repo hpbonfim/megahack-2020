@@ -1,7 +1,15 @@
-<div class="card">
-  <app-contract-card
-    *ngIf="model"
-    [model]="model"
-    [selected]="true"
-  ></app-contract-card>
+<div class="content">
+  <div class="card">
+    <app-contract-card
+      *ngIf="model"
+      [model]="model"
+      [selected]="true"
+    ></app-contract-card>
+  </div>
+  <app-contract-infos
+    [contract]="contract"
+    (setContractIsFilled)="filledContract = true"
+    *ngIf="!filledContract"
+  ></app-contract-infos>
+  <app-contract-generator *ngIf="filledContract"></app-contract-generator>
 </div>

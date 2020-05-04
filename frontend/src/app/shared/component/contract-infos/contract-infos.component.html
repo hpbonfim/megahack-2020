@@ -1,0 +1,52 @@
+<div fxLayout="column" fxLayoutAlign="start stretch">
+  <strong>Informações do contrato:</strong>
+  <br />
+  <form [formGroup]="form" class="w-100">
+    <div fxLayout="column">
+      <div *ngFor="let block of blocks">
+        <div *ngFor="let control of block.controls">
+          <mat-form-field appearance="outline" color="primary" class="w-100">
+            <mat-label>{{ control.label }}</mat-label>
+
+            <input
+              [formControlName]="control.controlName"
+              type="text"
+              ngDefaultControl
+              matInput
+            />
+            <mat-error>Campo obrigatório</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </form>
+  <button
+    mat-raised-button
+    color="accent"
+    class="btn-accent"
+    (click)="handleSubmit()"
+  >
+    Visualizar contrato <mat-icon>forward</mat-icon>
+  </button>
+</div>
+
+<!-- <div class="content">
+  <div
+    fxFlex="100"
+    class="align-center"
+    fxLayout="column"
+    fxLayoutAlign="start strech"
+  >
+    <div fxLayout="column" fxLayoutAlign="start strech" class="box">
+      <button
+        mat-raised-button
+        color="accent"
+        class="btn-accent"
+        (click)="handleSubmit()"
+      >
+        Salvar
+      </button>
+      <a class="text-muted" (click)="goBack()">Voltar</a>
+    </div>
+  </div>
+</div> -->

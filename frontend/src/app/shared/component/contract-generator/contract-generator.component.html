@@ -1,0 +1,17 @@
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let block of contract.blocks; index as i">
+    <mat-expansion-panel-header>
+      <mat-panel-title [innerHTML]="block.title"></mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div [innerHTML]="block.description"></div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<button #buttonAdd class="bg success" mat-raised-button>
+  <mat-icon>add</mat-icon>
+</button>
+
+<div id="elementoTeste1"></div>
+
+<div id="elementoTeste2"></div>
