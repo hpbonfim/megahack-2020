@@ -99,6 +99,9 @@ $ node start
 
 #### Front-end requer **[Docker](https://www.docker.com/)** e uma conta no [Docker Hub](https://hub.docker.com/) para colocar em produção.
 
+##### Instale as dependências and devDependencies antes de iniciar.
+> **[Repositório Mideal Front-End no DockerHub](https://hub.docker.com/r/megahack/frontend)**
+
 ```sh
 $ cd frontend
 $ npm install
@@ -109,7 +112,8 @@ $ docker run -d -p 80:80 --restart="always" megahack/frontend:latest
 ```
 #### Back-end requer **[Docker](https://www.docker.com/)** e uma conta no [Docker Hub](https://hub.docker.com/) para colocar em produção.
 
-Instale as dependências and devDependencies antes de iniciar.
+##### Instale as dependências and devDependencies antes de iniciar.
+> **[Repositório Mideal Back-End no DockerHub](https://hub.docker.com/r/megahack/backend)**
 
 ```sh
 $ cd backend
